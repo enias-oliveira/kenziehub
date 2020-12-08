@@ -1,6 +1,7 @@
 import { Form, Input, Button } from "antd";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import rgx from "./data/validator"
 
 const formItemLayout = {
   labelCol: {
@@ -59,11 +60,44 @@ const RegistrationForm =()=>{
       });
     };
 
-return(
-    <>
-    
-    </>
-)
+return (
+  <>
+    <div className="form-register">
+      <h3>Cadastre-se em nossa plataforma</h3>
+      <Form
+        {...formItemLayout}
+        form={form}
+        name="register"
+        onFinish={onFinish}
+        scrollToFirstError
+      >
+        <Form.Item
+          name="name"
+          label={<span>Nome</span>}
+          rules={[
+            {
+              required: true,
+              message: "Por favor insira um nome",
+            },
+            {
+              whitespace: true      //allow spaces        
+            },
+            {
+              pattern: "regex", //TODO create a object for regex name validation
+              message: "Somente letras",
+            },
+            {
+              min: 5,
+              message: "Seu nome deve ter ao menos 5 caracteres",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+      </Form>
+    </div>
+  </>
+);
 
 
 
