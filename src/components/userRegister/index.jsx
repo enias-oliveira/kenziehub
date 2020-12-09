@@ -1,4 +1,4 @@
-import { Form, Input, Button, Select } from "antd";
+import { Form, Input, Button, Select, notification } from "antd";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import rgx from "./data/validator";
@@ -39,6 +39,21 @@ const RegistrationForm = () => {
   const [form] = Form.useForm();
   const url = "https://kenziehub.me/users";
 
+  const successNotification = () => {
+    notification.open({
+      message: "Registro efetuado com sucesso!",
+      type: "success",
+    });
+  };
+  
+  const errorNotification = () => {
+    notification.open({
+      message: "Usuário não registrado!",
+      type: "error",
+      description: "E-mail já na base de dados. Erro 401.",
+    });
+  };
+
   const onFinish = (values) => {
     console.log("Values received from form registration", values);
 
@@ -46,20 +61,14 @@ const RegistrationForm = () => {
       .post(url, values)
       .then((response) => {
         console.log("user successful registration", response);
+        successNotification()
         history.push("/");
       })
-      .catch((error) =>
-        alert("Seu e-mail já está registrado na base de dados")
+      .catch((error) =>errorNotification()
       );
   };
 
-  const normFile = (e) => {
-    console.log("Upload event:", e);
-    if (Array.isArray(e)) {
-      return e;
-    }
-    return e && e.fileList;
-  };
+  
 
   return (
     <>
