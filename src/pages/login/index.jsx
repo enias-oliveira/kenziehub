@@ -36,7 +36,7 @@ const Login = () => {
         console.log("Resposta: ", res.data);
         window.localStorage.setItem("authToken", res.data.token);
         success();
-        history.push("/users");
+        history.push("/profile-users");
       })
       .catch((err) => error(err.response.data.message));
   };
@@ -79,8 +79,6 @@ const Login = () => {
   );
 };
 
-export default Login;
-
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -90,3 +88,5 @@ export const Container = styled.div`
   width: 50vw;
   height: 60vh;
 `;
+
+export default Login;
