@@ -1,12 +1,13 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
+import { createStore, combineReducers } from "redux";
 
-import userReducer from "./modules/usersBasics/reducer";
+//EXAMPLE
+import cartReducer from "./modules/cart/reducer";
 
 const reducers = combineReducers({
-  users: userReducer,
+  //EXAMPLE
+  cart: cartReducer,
 });
 
-const store = createStore(reducers, applyMiddleware(thunk));
+const store = createStore(reducers);
 
 export default store;
