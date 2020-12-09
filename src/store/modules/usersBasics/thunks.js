@@ -10,6 +10,7 @@ export const showUsersThunk = () => (dispatch) => {
         const data = res.data;
 
         data.map((item) => {
+          console.log(item);
           let newObject = {};
           newObject.name = item.name;
 
@@ -20,7 +21,7 @@ export const showUsersThunk = () => (dispatch) => {
             }
             return "";
           });
-
+          console.log(newObject);
           return dispatch(showUsers(newObject));
         });
       })
