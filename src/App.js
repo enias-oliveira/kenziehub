@@ -2,14 +2,16 @@ import GlobalStyle from "./styles/global";
 import RegistrationForm from "./components/userRegister";
 import Profile from "./pages/perfil";
 import Login from "./pages/login";
+import CarouselSlider from "./components/sliderCarousel"
 
 import { Switch, Route } from "react-router-dom";
 
-//RegistrationForm inserida apenas para teste. Substituir alert por modal alert.
+
 
 const App = () => {
   return (
     <>
+      <CarouselSlider />
       <div id="main-container">
         <h1>KenzieHub</h1>
         <Switch>
