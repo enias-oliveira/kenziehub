@@ -17,12 +17,6 @@ const App = () => {
         <Switch>
           <Route exact path="/">
             Landing Page Home
-            <p>/</p>
-            <p>/login</p>
-            <p>/register</p>
-            <p>/profile</p>
-            <p>/home</p>
-            <p>/profile-users</p>
             <LandingPage />
           </Route>
           <Route path="/login">

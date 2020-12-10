@@ -1,9 +1,9 @@
-import ListUser from "../../components/listUser";
+import ListUserBasics from "../../components/listUserBasics";
 
 const LandingPage = () => {
   return (
     <>
-      <ListUser />
+      <ListUserBasics />
     </>
   );
 };

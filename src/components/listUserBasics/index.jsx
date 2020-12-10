@@ -2,16 +2,16 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { showUsersThunk } from "../../store/modules/usersBasics/thunks";
-import CardUser from "../cardUser";
+import CardUserBasics from "../cardUserBasics";
 
 import { List } from "antd";
 
-const ListUser = () => {
+const ListUserBasics = () => {
   const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(showUsersThunk(15, 6));
+    dispatch(showUsersThunk(16, 5));
   }, []);
 
   return (
@@ -19,13 +19,13 @@ const ListUser = () => {
       <List
         style={{ background: "lightblue", padding: "1rem" }}
         grid={{
-          gutter: 15,
+          gutter: 16,
           xs: 1,
           sm: 2,
           md: 4,
-          lg: 5,
-          xl: 5,
-          xxl: 5,
+          lg: 4,
+          xl: 4,
+          xxl: 4,
         }}
         dataSource={users}
         renderItem={(user) => (
@@ -37,7 +37,7 @@ const ListUser = () => {
               minHeight: "100%",
             }}
           >
-            <CardUser user={user} />
+            <CardUserBasics user={user} />
           </List.Item>
         )}
       />
@@ -45,4 +45,4 @@ const ListUser = () => {
   );
 };
 
-export default ListUser;
+export default ListUserBasics;
