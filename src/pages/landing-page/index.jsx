@@ -1,6 +1,6 @@
 import ListUser from "../../components/listUser";
 
-const Initial = () => {
+const LandingPage = () => {
   return (
     <>
       <ListUser />
@@ -8,4 +8,4 @@ const Initial = () => {
   );
 };
 
-export default Initial;
+export default LandingPage;

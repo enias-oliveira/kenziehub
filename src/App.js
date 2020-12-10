@@ -3,9 +3,9 @@ import RegistrationForm from "./components/userRegister";
 import Profile from "./pages/perfil";
 import Login from "./pages/login";
 
-import { Switch, Route } from "react-router-dom";
+import LandingPage from "./pages/landing-page";
 
-//RegistrationForm inserida apenas para teste. Substituir alert por modal alert.
+import { Switch, Route } from "react-router-dom";
 
 const App = () => {
   return (
@@ -21,6 +21,7 @@ const App = () => {
             <p>/profile</p>
             <p>/home</p>
             <p>/profile-users</p>
+            <LandingPage />
           </Route>
           <Route path="/login">
             Login
@@ -36,7 +37,6 @@ const App = () => {
           <Route path="/profile-users">Profile Users</Route>
         </Switch>
       </div>
-      <Initial />
       <GlobalStyle></GlobalStyle>
     </>
   );
