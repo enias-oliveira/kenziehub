@@ -22,49 +22,49 @@ const Home = () => {
         <TimeLine>
           {/* Onde receberia a listagem */}
           <div className="cards">
-            Users: name <br /> Title: null <br /> Status: null
+            Users: name <br /> Title: React <br /> Status: Avançado
           </div>
           <div className="cards">
-            Users: name <br /> Title: null <br /> Status: null
+            Users: name <br /> Title: Java Script <br /> Status: intermediário
           </div>
           <div className="cards">
-            Users: name <br /> Title: null <br /> Status: null
+            Users: name <br /> Title: React <br /> Status: Iniciante
           </div>
           <div className="cards">
-            Users: name <br /> Title: null <br /> Status: null
+            Users: name <br /> Title: Java Script <br /> Status: Intermediário
           </div>
           <div className="cards">
-            Users: name <br /> Title: null <br /> Status: null
+            Users: name <br /> Title: React <br /> Status: intermediário
           </div>
           <div className="cards">
-            Users: name <br /> Title: null <br /> Status: null
+            Users: name <br /> Title: React <br /> Status: intermediário
           </div>
           <div className="cards">
-            Users: name <br /> Title: null <br /> Status: null
+            Users: name <br /> Title: React <br /> Status: intermediário
           </div>
           <div className="cards">
-            Users: name <br /> Title: null <br /> Status: null
+            Users: name <br /> Title: React <br /> Status: Iniciante
           </div>
           <div className="cards">
-            Users: name <br /> Title: null <br /> Status: null
+            Users: name <br /> Title: React <br /> Status: intermediário
           </div>
           <div className="cards">
-            Users: name <br /> Title: null <br /> Status: null
+            Users: name <br /> Title: React <br /> Status: Iniciante
           </div>
           <div className="cards">
-            Users: name <br /> Title: null <br /> Status: null
+            Users: name <br /> Title: React <br /> Status: intermediário
           </div>
           <div className="cards">
-            Users: name <br /> Title: null <br /> Status: null
+            Users: name <br /> Title: React <br /> Status: Iniciante
           </div>
           <div className="cards">
-            Users: name <br /> Title: null <br /> Status: null
+            Users: name <br /> Title: React <br /> Status: intermediário
           </div>
           <div className="cards">
-            Users: name <br /> Title: null <br /> Status: null
+            Users: name <br /> Title: React <br /> Status: Iniciante
           </div>
           <div className="cards">
-            Users: name <br /> Title: null <br /> Status: null
+            Users: name <br /> Title: React <br /> Status: intermediário
           </div>
         </TimeLine>
       </main>
