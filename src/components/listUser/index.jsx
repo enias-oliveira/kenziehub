@@ -13,6 +13,7 @@ const ListUser = () => {
   return (
     <>
       <List
+        style={{ background: "lightblue", padding: "1rem" }}
         grid={{
           gutter: 16,
           xs: 1,
