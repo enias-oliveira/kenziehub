@@ -35,7 +35,9 @@ const Login = () => {
       .then((res) => {
         console.log("Resposta: ", res.data);
         window.localStorage.setItem("authToken", res.data.token);
+
         window.localStorage.setItem("idLoged", res.data.user.id);
+
         success();
         history.push("/profile-users");
       })
