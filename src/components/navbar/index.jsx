@@ -11,7 +11,7 @@ const NavBar = () => {
         <Menu.Item key="logo">
           <img
             id="logomarca"
-            src="https://i.postimg.cc/fT1tFz04/logoMini.png"
+            src="https://i.postimg.cc/8zT15c9g/logo-Mini-white.png"
             alt="oi"
             onClick={() => {
               history.push("/");
