@@ -1,30 +1,26 @@
 import { showUsers } from "./actions";
 import axios from "axios";
-import { useEffect } from "react";
 
-export const showUsersThunk = () => (dispatch) => {
-  useEffect(() => {
-    axios
-      .get("https://kenziehub.me/users")
-      .then((res) => {
-        const data = res.data;
+export const showUsersThunk = (perPage, page) => (dispatch) => {
+  axios
+    .get(`https://kenziehub.me/users?perPage=${perPage}&page=${page}`)
+    .then((res) => {
+      const data = res.data;
 
-        data.map((item) => {
-          console.log(item);
-          let newObject = {};
-          newObject.name = item.name;
+      data.map((item) => {
+        let newObject = {};
+        newObject.name = item.name;
+        newObject.course_module = item.course_module;
 
-          item.techs.map((techs, index) => {
-            if (index === 0) {
-              newObject.title = techs.title;
-              newObject.status = techs.status;
-            }
-            return "";
-          });
-          console.log(newObject);
-          return dispatch(showUsers(newObject));
+        item.techs.map((techs, index) => {
+          if (index === 0) {
+            newObject.title = techs.title;
+            newObject.status = techs.status;
+          }
+          return "";
         });
-      })
-      .catch((err) => console.log(err));
-  }, [dispatch]);
+        return dispatch(showUsers(newObject));
+      });
+    })
+    .catch((err) => console.log(err));
 };

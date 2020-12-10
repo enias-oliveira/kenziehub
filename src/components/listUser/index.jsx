@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
 import { showUsersThunk } from "../../store/modules/usersBasics/thunks";
 import CardUser from "../cardUser";
 
@@ -8,7 +10,9 @@ const ListUser = () => {
   const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
 
-  dispatch(showUsersThunk());
+  useEffect(() => {
+    dispatch(showUsersThunk(15, 6));
+  }, []);
 
   return (
     <>
