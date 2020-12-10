@@ -2,6 +2,7 @@ import GlobalStyle from "./styles/global";
 import RegistrationForm from "./components/userRegister";
 import Profile from "./pages/perfil";
 import Login from "./pages/login";
+import NavBar from "./components/navbar"
 
 import { Switch, Route } from "react-router-dom";
 
@@ -10,6 +11,7 @@ import { Switch, Route } from "react-router-dom";
 const App = () => {
   return (
     <>
+    <NavBar/>
       <div id="main-container">
         <h1>KenzieHub</h1>
         <Switch>
