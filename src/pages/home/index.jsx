@@ -15,8 +15,13 @@ const Home = () => {
 
       <main>
         <Perfil>
-          <div className="img">Foto</div>
-          <div className="name">nome</div>
+          <div className="img">
+            <img
+              src="https://raw.githubusercontent.com/hom-bahrani/react-profile-card/master/src/placeholder.png"
+              alt="user"
+            />
+          </div>
+          <div className="name">User da Silva</div>
           <Link className="editar">editar perfil</Link>
         </Perfil>
         <TimeLine>
@@ -93,10 +98,13 @@ const Perfil = styled.div`
   height: 100%;
 
   .img {
-    color: white;
     width: 200px;
     height: 200px;
-    background: #323232;
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
   }
 
   .name {
@@ -115,6 +123,7 @@ const TimeLine = styled.div`
   flex-flow: row wrap;
   margin: 20px 20px 0 0;
   background: #3b00ff;
+  max-height: 100vh;
 
   .cards {
     padding: 10px 20px;
