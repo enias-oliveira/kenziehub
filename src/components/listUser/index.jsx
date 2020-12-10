@@ -15,21 +15,22 @@ const ListUser = () => {
       <List
         style={{ background: "lightblue", padding: "1rem" }}
         grid={{
-          gutter: 16,
+          gutter: 15,
           xs: 1,
           sm: 2,
           md: 4,
-          lg: 4,
-          xl: 6,
-          xxl: 3,
+          lg: 5,
+          xl: 5,
+          xxl: 5,
         }}
         dataSource={users}
         renderItem={(user) => (
           <List.Item
             style={{
-              display: "inline-flex",
-              justifyContent: "center",
+              display: "flex",
+              justifyContent: "space-between",
               alignItems: "center",
+              minHeight: "100%",
             }}
           >
             <CardUser user={user} />

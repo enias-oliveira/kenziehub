@@ -8,11 +8,10 @@ const CardUser = ({ user }) => {
       <Card
         onClick={() => console.log("Card Clicked")}
         hoverable
-        style={{ width: 250 }}
+        style={{ width: "100%", height: "10rem" }}
       >
-        <Meta title={user.name} />
-        <p>Title: {user.title}</p>
-        <p>Status: {user.status}</p>
+        <Meta title={user.name} style={{ margin: "0.1rem" }} />
+        <p style={{ margin: 0 }}>{user.course_module}</p>
       </Card>
     </>
   );
