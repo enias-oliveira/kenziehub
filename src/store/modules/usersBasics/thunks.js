@@ -19,6 +19,7 @@ export const showUsersThunk = (perPage, page) => (dispatch) => {
           }
           return "";
         });
+
         return dispatch(showUsers(newObject));
       });
     })
