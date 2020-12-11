@@ -4,6 +4,9 @@ import styled from "styled-components";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
+import NavBar from "../../components/navbar";
+import CarouselSlider from "../../components/sliderCarousel";
+
 const Login = () => {
   const history = useHistory();
   const url = "https://kenziehub.me/sessions";
@@ -16,13 +19,13 @@ const Login = () => {
   const validateMessages = {
     required: "${label} is required!",
     types: {
-      email: "${label} is not a valid email!",
+      email: "Seu e-mail é invalido",
       number: "${label} is not a valid number!",
     },
   };
 
   const success = () => {
-    message.success("Login Sucess");
+    message.success("Login realizado com sucesso!");
   };
 
   const error = (info) => {
@@ -39,46 +42,50 @@ const Login = () => {
         window.localStorage.setItem("idLoged", res.data.user.id);
 
         success();
-        history.push("/profile-users");
+        history.push("/home");
       })
       .catch((err) => error(err.response.data.message));
   };
 
   return (
-    <Container>
-      <Form
-        {...layout}
-        name="nest-messages"
-        onFinish={onFinish}
-        validateMessages={validateMessages}
-      >
-        <Form.Item
-          name="email"
-          label="Email"
-          rules={[{ type: "email", required: true }]}
+    <>
+      <NavBar />
+      <CarouselSlider />
+      <Container>
+        <Form
+          {...layout}
+          name="nest-messages"
+          onFinish={onFinish}
+          validateMessages={validateMessages}
         >
-          <Input placeholder="example@example.com" />
-        </Form.Item>
-        <Form.Item
-          label="Password"
-          name="password"
-          rules={[
-            {
-              required: true,
-              message: "Please input your password!",
-            },
-          ]}
-        >
-          <Input.Password placeholder="@Password123" />
-        </Form.Item>
-        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-          <Button type="primary" htmlType="submit">
-            Login
-          </Button>{" "}
-          Or <a href="/register">register</a>
-        </Form.Item>
-      </Form>
-    </Container>
+          <Form.Item
+            name="email"
+            label="Email"
+            rules={[{ type: "email", required: true }]}
+          >
+            <Input placeholder="example@example.com" />
+          </Form.Item>
+          <Form.Item
+            label="Senha"
+            name="password"
+            rules={[
+              {
+                required: true,
+                message: "Por favor, você precisa inserir uma senha",
+              },
+            ]}
+          >
+            <Input.Password placeholder="@Password123" />
+          </Form.Item>
+          <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+            <Button type="primary" htmlType="submit">
+              Login
+            </Button>{" "}
+            ou <a href="/register">Cadastre-se</a>
+          </Form.Item>
+        </Form>
+      </Container>
+    </>
   );
 };
 

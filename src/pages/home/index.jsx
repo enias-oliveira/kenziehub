@@ -1,17 +1,24 @@
-// import ListUser from '../../components/listUser' // Reutilizar listagem na Home
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { showUsersThunk } from "../../store/modules/usersBasics/thunks";
+import NavBar from "../../components/navbar";
+import ListUser from "../../components/listUser";
 
 const Home = () => {
+  const users = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(showUsersThunk(16, 5));
+  }, []);
+
+  console.log("Home: ", users);
+
   return (
     <Container>
-      <TopBar>
-        <Logo>Logo</Logo>
-        <ContainerLinks>
-          <Link className={"link"}>Dashboard</Link>
-          <Link className={"link"}>Logout</Link>
-        </ContainerLinks>
-      </TopBar>
+      <NavBar />
 
       <main>
         <Perfil>
@@ -25,52 +32,7 @@ const Home = () => {
           <Link className="editar">editar perfil</Link>
         </Perfil>
         <TimeLine>
-          {/* Onde receberia a listagem */}
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: Avançado
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: Java Script <br /> Status: intermediário
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: Iniciante
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: Java Script <br /> Status: Intermediário
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: intermediário
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: intermediário
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: intermediário
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: Iniciante
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: intermediário
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: Iniciante
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: intermediário
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: Iniciante
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: intermediário
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: Iniciante
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: intermediário
-          </div>
+          <ListUser users={users} basic={true} />
         </TimeLine>
       </main>
     </Container>
@@ -124,30 +86,4 @@ const TimeLine = styled.div`
   margin: 20px 20px 0 0;
   background: #3b00ff;
   max-height: 100vh;
-
-  .cards {
-    padding: 10px 20px;
-    border: 1px solid black;
-    margin: 10px;
-  }
-`;
-
-const TopBar = styled.div`
-  position: relative;
-  padding: 30px;
-  background: #915858;
-
-  .link {
-    margin: 0 10px;
-    color: #323232;
-  }
-`;
-
-const Logo = styled.div`
-  position: absolute;
-`;
-
-const ContainerLinks = styled.div`
-  display: flex;
-  justify-content: flex-end;
 `;
