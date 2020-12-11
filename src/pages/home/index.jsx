@@ -1,20 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { showUsersThunk } from "../../store/modules/usersBasics/thunks";
 import NavBar from "../../components/navbar";
 import ListUser from "../../components/listUser";
+import axios from "axios";
 
 const Home = () => {
   const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
+  const [infoLoged, setInfoLoged] = useState({});
+  const idLoged = localStorage.getItem("idLoged");
+  // console.log("IDLoged: ", idLoged);
 
   useEffect(() => {
     dispatch(showUsersThunk(16, 5));
-  }, []);
 
-  console.log("Home: ", users);
+    axios.get(`https://kenziehub.me/users/${idLoged}`).then((res) => {
+      console.log("UserLoged: ", res.data);
+      setInfoLoged(res.data);
+    });
+  }, [idLoged]);
+
+  // console.log("Home: ", users);
+  // console.log("State: ", infoLoged);
 
   return (
     <Container>
@@ -22,13 +32,19 @@ const Home = () => {
 
       <main>
         <Perfil>
-          <div className="img">
-            <img
-              src="https://raw.githubusercontent.com/hom-bahrani/react-profile-card/master/src/placeholder.png"
-              alt="user"
-            />
-          </div>
-          <div className="name">User da Silva</div>
+          <Link to="/profile">
+            <div className="img">
+              <img
+                src={
+                  infoLoged.avatar_url
+                    ? infoLoged.avatar_url
+                    : "https://raw.githubusercontent.com/hom-bahrani/react-profile-card/master/src/placeholder.png"
+                }
+                alt="user"
+              />
+            </div>
+          </Link>
+          <div className="name">{infoLoged.name}</div>
           <Link className="editar">editar perfil</Link>
         </Perfil>
         <TimeLine>
