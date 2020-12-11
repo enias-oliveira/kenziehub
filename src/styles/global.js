@@ -20,4 +20,14 @@ button, svg {
     cursor: pointer;
 }
 
+.ant-col{
+    background-color: #a52a2a00;
+}
+
+#main-container > div.ant-list.ant-list-split.ant-list-grid{
+    
+    background-image: url("https://i.postimg.cc/Kcn1Rzxc/wallpaper.jpg") !important;
+}
+
+
 `;
