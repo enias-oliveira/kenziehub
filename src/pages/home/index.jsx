@@ -1,9 +1,20 @@
-// import ListUser from '../../components/listUser' // Reutilizar listagem na Home
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import ListUser from "../../components/listUser"; // Reutilizar listagem na Home
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/navbar";
+import { showUsersThunk } from "../../store/modules/usersBasics/thunks";
 
 const Home = () => {
+  const users = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(showUsersThunk(16, 5));
+  }, []);
+
   return (
     <Container>
       <NavBar />
@@ -20,52 +31,7 @@ const Home = () => {
           <Link className="editar">editar perfil</Link>
         </Perfil>
         <TimeLine>
-          {/* Onde receberia a listagem */}
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: Avançado
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: Java Script <br /> Status: intermediário
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: Iniciante
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: Java Script <br /> Status: Intermediário
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: intermediário
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: intermediário
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: intermediário
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: Iniciante
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: intermediário
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: Iniciante
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: intermediário
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: Iniciante
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: intermediário
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: Iniciante
-          </div>
-          <div className="cards">
-            Users: name <br /> Title: React <br /> Status: intermediário
-          </div>
+          <ListUser users={users} />
         </TimeLine>
       </main>
     </Container>

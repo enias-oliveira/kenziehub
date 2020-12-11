@@ -16,6 +16,7 @@ export const showUsersThunk = (perPage, page) => (dispatch) => {
           if (index === 0) {
             newObject.title = techs.title;
             newObject.status = techs.status;
+            newObject.avatar_url = techs.avatar_url;
           }
           return "";
         });
