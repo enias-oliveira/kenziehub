@@ -17,10 +17,6 @@ const cleanStorage = () => {
   console.log("Storage is cleaned");
 };
 
-
-
-
-
   const checkToken = () => {
     if (localStorage.idLoged === undefined) {
       setToken(false);
