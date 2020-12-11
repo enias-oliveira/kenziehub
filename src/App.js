@@ -2,11 +2,10 @@ import GlobalStyle from "./styles/global";
 import RegistrationForm from "./components/userRegister";
 import Profile from "./pages/perfil";
 import Login from "./pages/login";
-import CarouselSlider from "./components/sliderCarousel"
+import CarouselSlider from "./components/sliderCarousel";
+import Home from "./pages/home";
 
 import { Switch, Route } from "react-router-dom";
-
-
 
 const App = () => {
   return (
@@ -34,7 +33,10 @@ const App = () => {
           <Route path="/profile">
             <Profile />
           </Route>
-          <Route path="/home">Home</Route>
+          <Route path="/home">
+            Home
+            <Home />
+          </Route>
           <Route path="/profile-users">Profile Users</Route>
         </Switch>
       </div>
