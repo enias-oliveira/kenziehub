@@ -1,19 +1,7 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-
-import { showUsersThunk } from "../../store/modules/usersBasics/thunks";
-import CardUserBasics from "../cardUserBasics";
-
 import { List } from "antd";
+import CardUserBasics from "../../components/cardUserBasics";
 
-const ListUserBasics = () => {
-  const users = useSelector((state) => state.users);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(showUsersThunk(16, 5));
-  }, []);
-
+const ListUser = ({ users, basic = false }) => {
   return (
     <>
       <List
@@ -37,7 +25,7 @@ const ListUserBasics = () => {
               minHeight: "100%",
             }}
           >
-            <CardUserBasics user={user} />
+            {basic ? <CardUserBasics user={user} /> : null}
           </List.Item>
         )}
       />
@@ -45,4 +33,4 @@ const ListUserBasics = () => {
   );
 };
 
-export default ListUserBasics;
+export default ListUser;
