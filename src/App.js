@@ -12,16 +12,9 @@ const App = () => {
   return (
     <>
       <div id="main-container">
-        <h1>KenzieHub</h1>
         <Switch>
           <Route exact path="/">
             <LandingPage />
-            <p>/</p>
-            <p>/login</p>
-            <p>/register</p>
-            <p>/profile</p>
-            <p>/home</p>
-            <p>/profile-users</p>
           </Route>
           <Route path="/login">
             <Login />
