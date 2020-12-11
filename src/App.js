@@ -5,10 +5,7 @@ import Login from "./pages/login";
 import NavBar from "./components/navbar";
 import CarouselSlider from "./components/sliderCarousel";
 import Home from "./pages/home";
-import PerfilUser from "./components/perfilUser";
-
 import { Switch, Route } from "react-router-dom";
-
 const App = () => {
   return (
     <>
@@ -42,7 +39,6 @@ const App = () => {
           </Route>
           <Route path="/profile-users">Profile Users</Route>
         </Switch>
-        <PerfilUser />
       </div>
       <GlobalStyle></GlobalStyle>
     </>

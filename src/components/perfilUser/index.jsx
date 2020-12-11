@@ -1,83 +1,80 @@
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { showProfileThunk } from "../../store/modules/profile/thunks";
+
 import { Avatar, Typography, List, Card } from "antd";
 import { FaLinkedin } from "react-icons/fa";
-import { UserOutlined } from "@ant-design/icons";
+import { MdClass } from "react-icons/md";
+
 const { Title, Text } = Typography;
 
-const dataTech = [
-  {
-    title: "React",
-    status: "Básico",
-  },
-  {
-    title: "HTML",
-    status: "Avançado",
-  },
-  {
-    title: "CSS",
-    status: "Básico",
-  },
-  {
-    title: "Git",
-    status: "Intermediário",
-  },
-];
+const PerfilUser = ({ userLoged = true }) => {
+  const dispatch = useDispatch();
+  const profile = useSelector((state) => state.profile);
 
-const dataWork = [
-  {
-    title: "Collection",
-    description: "Aplicação Web utilizando ReactJS",
-    deploy_url: "https://collection-card.vercel.app/",
-  },
-  {
-    title: "Collection",
-    description: "Aplicação Web utilizando ReactJS",
-    deploy_url: "https://collection-card.vercel.app/",
-  },
-  {
-    title: "Collection",
-    description: "Aplicação Web utilizando ReactJS",
-    deploy_url: "https://collection-card.vercel.app/",
-  },
-  {
-    title: "Collection",
-    description: "Aplicação Web utilizando ReactJS",
-    deploy_url: "https://collection-card.vercel.app/",
-  },
-];
+  const id = "8b8e50a6-50c2-4718-b817-2d38cad0c8f4";
 
-const PerfilUser = () => {
+  useEffect(() => {
+    dispatch(showProfileThunk(id));
+  }, []);
+
   return (
     <>
       <div style={{ display: "flex", alignItems: "center" }}>
-        <Avatar size={64} icon={<UserOutlined />} />
-        <div style={{ marginLeft: 20 }}>
-          <Title level={3}>Brunno Lorran</Title>
+        <Avatar size={64} src={profile.avatar_url} />
+        <div
+          style={{ marginLeft: 20, display: "flex", flexDirection: "column" }}
+        >
+          <Title level={3}>{profile.name}</Title>
           <Text>
-            <FaLinkedin /> brunnolorran | Desenvolvedor Fron-End
+            <FaLinkedin />{" "}
+            <a href={`https://www.linkedin.com/in/${profile.contact}/`}>
+              {profile.contact}
+            </a>{" "}
+            | {profile.bio}
+          </Text>
+          <Text>
+            <MdClass />
+            {""}
+            {profile.course_module}
           </Text>
         </div>
       </div>
-      <div>
+
+      <div style={{ marginTop: 20 }}>
         <Title level={4}>Tecnologias</Title>
+        {userLoged && <button>ADD +</button>}
         <List
           grid={{ gutter: 16, column: 4 }}
-          dataSource={dataTech}
+          dataSource={profile.techs}
           renderItem={(item) => (
             <List.Item>
               <Card title={item.title}>{item.status}</Card>
+              {userLoged && (
+                <button onClick={() => console.log("ID: ", item.id)}>
+                  Edit
+                </button>
+              )}
             </List.Item>
           )}
         />
         <Title level={4}>Works</Title>
+        {userLoged && <button>ADD +</button>}
+
         <List
           itemLayout="horizontal"
-          dataSource={dataWork}
+          dataSource={profile.works}
           renderItem={(item) => (
             <List.Item>
               <List.Item.Meta
                 title={<a href={item.deploy_url}>{item.title}</a>}
                 description={item.description}
               />
+              {userLoged && (
+                <button onClick={() => console.log("ID: ", item.id)}>
+                  Edit
+                </button>
+              )}
             </List.Item>
           )}
         />
