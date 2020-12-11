@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import ListUserHome from "../../components/listUserHome"; // Reutilizar listagem na Home
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { showUsersThunk } from "../../store/modules/usersBasics/thunks";
 import NavBar from "../../components/navbar";
 import { showUsersThunk } from "../../store/modules/usersBasics/thunks";
 
@@ -85,30 +87,4 @@ const TimeLine = styled.div`
   margin: 20px 20px 0 0;
   background: #3b00ff;
   max-height: 100vh;
-
-  .cards {
-    padding: 10px 20px;
-    border: 1px solid black;
-    margin: 10px;
-  }
-`;
-
-const TopBar = styled.div`
-  position: relative;
-  padding: 30px;
-  background: #915858;
-
-  .link {
-    margin: 0 10px;
-    color: #323232;
-  }
-`;
-
-const Logo = styled.div`
-  position: absolute;
-`;
-
-const ContainerLinks = styled.div`
-  display: flex;
-  justify-content: flex-end;
 `;
