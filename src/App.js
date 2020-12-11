@@ -7,7 +7,6 @@ import Profile from "./pages/profile";
 import ProfileUsers from "./pages/profileUsers";
 
 import { Switch, Route } from "react-router-dom";
-
 const App = () => {
   return (
     <>
