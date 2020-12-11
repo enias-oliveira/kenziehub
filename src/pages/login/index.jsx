@@ -4,6 +4,8 @@ import styled from "styled-components";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
+import NavBar from "../../components/navbar";
+
 const Login = () => {
   const history = useHistory();
   const url = "https://kenziehub.me/sessions";
@@ -46,6 +48,7 @@ const Login = () => {
 
   return (
     <Container>
+      <NavBar />
       <Form
         {...layout}
         name="nest-messages"
