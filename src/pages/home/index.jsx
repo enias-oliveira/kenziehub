@@ -1,17 +1,12 @@
 // import ListUser from '../../components/listUser' // Reutilizar listagem na Home
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import NavBar from "../../components/navbar";
 
 const Home = () => {
   return (
     <Container>
-      <TopBar>
-        <Logo>Logo</Logo>
-        <ContainerLinks>
-          <Link className={"link"}>Dashboard</Link>
-          <Link className={"link"}>Logout</Link>
-        </ContainerLinks>
-      </TopBar>
+      <NavBar />
 
       <main>
         <Perfil>
