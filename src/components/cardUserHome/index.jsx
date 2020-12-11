@@ -7,13 +7,6 @@ const CardUserHome = ({ user }) => {
       <Card
         onClick={() => console.log("Card Clicked")}
         hoverable
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignContent: "space-evenly",
-          width: "100%",
-          height: "22rem",
-        }}
         cover={
           <img
             alt={`${user.name} avatar`}
@@ -22,18 +15,14 @@ const CardUserHome = ({ user }) => {
                 ? user.avatar_url
                 : "https://www.nicepng.com/png/full/73-730154_open-default-profile-picture-png.png"
             }
-            width="177.062"
-            height="177.062"
+            style={{ height: "15rem" }}
           />
         }
+        style={{ height: "23rem", width: "15rem" }}
       >
-        <Meta
-          title={user.name}
-          style={{ margin: "0.1rem" }}
-          description={user.course_module}
-        />
+        <Meta title={user.name} description={user.course_module} />
         {!!user.title && (
-          <p style={{ margin: 0, paddingTop: "0.25rem" }}>
+          <p>
             {user.title}: {user.status}
           </p>
         )}

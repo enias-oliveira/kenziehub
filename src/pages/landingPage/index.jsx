@@ -12,7 +12,7 @@ const LandingPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(showUsersThunk(16, 5));
+    dispatch(showUsersThunk(15, 5));
   }, []);
   return (
     <>

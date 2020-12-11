@@ -1,21 +1,24 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import ListUserHome from "../../components/listUserHome"; // Reutilizar listagem na Home
-import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { showUsersThunk } from "../../store/modules/usersBasics/thunks";
+
+import ListUserHome from "../../components/listUserHome";
 import NavBar from "../../components/navbar";
+
+import styled from "styled-components";
+
 import { showUsersThunk } from "../../store/modules/usersBasics/thunks";
 
 const Home = () => {
   const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
 
+  const [page, setPage] = useState(1);
+
   useEffect(() => {
-    dispatch(showUsersThunk(12, 8));
-  }, []);
+    dispatch(showUsersThunk(12, page));
+  }, [dispatch, page]);
 
   return (
     <Container>
@@ -33,7 +36,7 @@ const Home = () => {
           <Link className="editar">editar perfil</Link>
         </Perfil>
         <TimeLine>
-          <ListUserHome users={users} />
+          <ListUserHome users={users} currentPage={page} setPage={setPage} />
         </TimeLine>
       </main>
     </Container>

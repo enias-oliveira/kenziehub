@@ -6,23 +6,14 @@ export const showUsersThunk = (perPage, page) => (dispatch) => {
     .get(`https://kenziehub.me/users?perPage=${perPage}&page=${page}`)
     .then((res) => {
       const data = res.data;
-
+      let list = [];
       data.map((item) => {
-        let newObject = {};
-        newObject.name = item.name;
-        newObject.course_module = item.course_module;
-        newObject.avatar_url = item.avatar_url;
+        item.title = item.techs.length && item.techs[0].title;
+        item.status = item.title && item.techs[0].status;
 
-        item.techs.map((techs, index) => {
-          if (index === 0) {
-            newObject.title = techs.title;
-            newObject.status = techs.status;
-          }
-          return "";
-        });
-
-        return dispatch(showUsers(newObject));
+        list = [...list, item];
       });
+      return dispatch(showUsers(list));
     })
     .catch((err) => console.log(err));
 };

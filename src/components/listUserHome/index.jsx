@@ -1,7 +1,7 @@
 import { List } from "antd";
 import CardUserHome from "../../components/cardUserHome";
 
-const ListUserHome = ({ users }) => {
+const ListUserHome = ({ users, currentPage, setPage }) => {
   return (
     <>
       <List
@@ -10,19 +10,24 @@ const ListUserHome = ({ users }) => {
           gutter: 12,
           xs: 1,
           sm: 2,
-          md: 3,
-          lg: 3,
-          xl: 3,
-          xxl: 3,
+          md: 4,
+          lg: 4,
+          xl: 4,
+          xxl: 4,
+        }}
+        pagination={{
+          onChange: (page) => setPage(page),
+          pageSize: 12,
+          current: currentPage,
+          total: 200,
         }}
         dataSource={users}
         renderItem={(user) => (
           <List.Item
             style={{
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: "center",
               alignItems: "center",
-              minHeight: "100%",
             }}
           >
             <CardUserHome user={user} />
