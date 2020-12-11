@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Row, Col, Tag, Card, Modal } from "antd";
 import styled from "styled-components";
+import NavBar from "../../components/navbar";
 
 const Profile = () => {
   const [info, setInfo] = useState({});
@@ -31,6 +32,7 @@ const Profile = () => {
 
   return (
     <Container>
+      <NavBar />
       {info.id && (
         <Col
           span={24}
