@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import ListUser from "../../components/listUser"; // Reutilizar listagem na Home
+import ListUserHome from "../../components/listUserHome"; // Reutilizar listagem na Home
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/navbar";
@@ -12,7 +12,7 @@ const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(showUsersThunk(16, 5));
+    dispatch(showUsersThunk(12, 8));
   }, []);
 
   return (
@@ -31,7 +31,7 @@ const Home = () => {
           <Link className="editar">editar perfil</Link>
         </Perfil>
         <TimeLine>
-          <ListUser users={users} />
+          <ListUserHome users={users} />
         </TimeLine>
       </main>
     </Container>

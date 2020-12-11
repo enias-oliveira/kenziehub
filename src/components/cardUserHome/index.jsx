@@ -1,5 +1,4 @@
 import { Card } from "antd";
-
 const { Meta } = Card;
 
 const CardUserHome = ({ user }) => {
@@ -13,14 +12,25 @@ const CardUserHome = ({ user }) => {
           flexDirection: "column",
           alignContent: "space-evenly",
           width: "100%",
-          height: "10rem",
+          height: "22rem",
         }}
+        cover={
+          <img
+            alt={`${user.name} avatar`}
+            src={
+              !!user.avatar_url
+                ? user.avatar_url
+                : "https://www.nicepng.com/png/full/73-730154_open-default-profile-picture-png.png"
+            }
+            width="177.062"
+            height="177.062"
+          />
+        }
       >
         <Meta
           title={user.name}
           style={{ margin: "0.1rem" }}
           description={user.course_module}
-          cover={<img alt={`${user.name} avatar`} src={user.avatar_url} />}
         />
         {!!user.title && (
           <p style={{ margin: 0, paddingTop: "0.25rem" }}>

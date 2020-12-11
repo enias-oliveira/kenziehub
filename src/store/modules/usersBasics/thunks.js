@@ -11,12 +11,12 @@ export const showUsersThunk = (perPage, page) => (dispatch) => {
         let newObject = {};
         newObject.name = item.name;
         newObject.course_module = item.course_module;
+        newObject.avatar_url = item.avatar_url;
 
         item.techs.map((techs, index) => {
           if (index === 0) {
             newObject.title = techs.title;
             newObject.status = techs.status;
-            newObject.avatar_url = techs.avatar_url;
           }
           return "";
         });
