@@ -11,6 +11,8 @@ const { Title, Text } = Typography;
 const PerfilUser = ({ userLoged = true }) => {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile);
+  // const storage = localStorage.getItem("idLoged");
+  // console.log("IDLoged: ", storage);
 
   const id = "8b8e50a6-50c2-4718-b817-2d38cad0c8f4";
 
