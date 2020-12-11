@@ -4,12 +4,15 @@
 /node_modules
 /.pnp
 .pnp.js
+.eslintcache
 
 # testing
 /coverage
+.eslintcache
 
 # production
 /build
+.eslintcache
 
 # misc
 .DS_Store
