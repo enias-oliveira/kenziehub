@@ -2,16 +2,17 @@ import GlobalStyle from "./styles/global";
 import RegistrationForm from "./components/userRegister";
 import Profile from "./pages/perfil";
 import Login from "./pages/login";
-import NavBar from "./components/navbar"
+import NavBar from "./components/navbar";
 import CarouselSlider from "./components/sliderCarousel";
 import Home from "./pages/home";
+import PerfilUser from "./components/perfilUser";
 
 import { Switch, Route } from "react-router-dom";
 
 const App = () => {
   return (
     <>
-    <NavBar/>
+      <NavBar />
       <CarouselSlider />
       <div id="main-container">
         <h1>KenzieHub</h1>
@@ -41,6 +42,7 @@ const App = () => {
           </Route>
           <Route path="/profile-users">Profile Users</Route>
         </Switch>
+        <PerfilUser />
       </div>
       <GlobalStyle></GlobalStyle>
     </>
