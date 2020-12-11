@@ -1,19 +1,19 @@
 import { List } from "antd";
 import CardUserBasics from "../../components/cardUserBasics";
 
-const ListUser = ({ users, basic = false }) => {
+const ListUserBasics = ({ users }) => {
   return (
     <>
       <List
         style={{ background: "lightblue", padding: "1rem" }}
         grid={{
-          gutter: 16,
+          gutter: 15,
           xs: 1,
           sm: 2,
-          md: 4,
-          lg: 4,
-          xl: 4,
-          xxl: 4,
+          md: 5,
+          lg: 5,
+          xl: 5,
+          xxl: 5,
         }}
         dataSource={users}
         renderItem={(user) => (
@@ -25,7 +25,7 @@ const ListUser = ({ users, basic = false }) => {
               minHeight: "100%",
             }}
           >
-            {basic ? <CardUserBasics user={user} /> : null}
+            <CardUserBasics user={user} />
           </List.Item>
         )}
       />
@@ -33,4 +33,4 @@ const ListUser = ({ users, basic = false }) => {
   );
 };
 
-export default ListUser;
+export default ListUserBasics;

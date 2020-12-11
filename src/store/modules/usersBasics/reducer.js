@@ -1,9 +1,9 @@
-import { USER_BASICS } from "./types";
+import { USER_GET } from "./types";
 
 const userReducer = (state = [], action) => {
   switch (action.type) {
-    case USER_BASICS:
-      return [...state, action.list];
+    case USER_GET:
+      return action.list;
 
     default:
       return state;

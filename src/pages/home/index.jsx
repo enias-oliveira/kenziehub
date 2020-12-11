@@ -1,20 +1,24 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { showUsersThunk } from "../../store/modules/usersBasics/thunks";
+
+import ListUserHome from "../../components/listUserHome";
 import NavBar from "../../components/navbar";
-import ListUser from "../../components/listUser";
+
+import styled from "styled-components";
+
+import { showUsersThunk } from "../../store/modules/usersBasics/thunks";
 
 const Home = () => {
   const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(showUsersThunk(16, 5));
-  }, []);
+  const [page, setPage] = useState(1);
 
-  console.log("Home: ", users);
+  useEffect(() => {
+    dispatch(showUsersThunk(12, page));
+  }, [dispatch, page]);
 
   return (
     <Container>
@@ -32,7 +36,7 @@ const Home = () => {
           <Link className="editar">editar perfil</Link>
         </Perfil>
         <TimeLine>
-          <ListUser users={users} basic={true} />
+          <ListUserHome users={users} currentPage={page} setPage={setPage} />
         </TimeLine>
       </main>
     </Container>
