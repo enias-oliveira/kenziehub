@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Row, Col, Tag, Card, Modal } from "antd";
 import styled from "styled-components";
 import NavBar from "../../components/navbar";
+import Navigation from "../../components/navbar/navigation";
 
 const Profile = () => {
   const [info, setInfo] = useState({});
@@ -32,7 +33,7 @@ const Profile = () => {
 
   return (
     <Container>
-      <NavBar />
+      <Navigation />
       {info.id && (
         <Col
           span={24}

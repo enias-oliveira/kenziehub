@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
+import Navigation from "../../components/navbar/navigation";
 import NavBar from "../../components/navbar";
 import CarouselSlider from "../../components/sliderCarousel";
 import ListUserBasics from "../../components/listUserBasics";
@@ -16,7 +16,7 @@ const LandingPage = () => {
   }, []);
   return (
     <>
-      <NavBar />
+      <Navigation />
       <CarouselSlider />
       <ListUserBasics users={users} />
     </>
