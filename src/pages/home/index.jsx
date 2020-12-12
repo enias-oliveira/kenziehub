@@ -47,7 +47,7 @@ const Home = () => {
               />
             </div>
           </Link>
-          <div className="name">{infoLoged.name}</div>
+          <div className="name">{<b>{infoLoged.name}</b>}</div>
           <Link className="editar">editar perfil</Link>
         </Perfil>
         <TimeLine>
@@ -75,8 +75,9 @@ const Perfil = styled.div`
   flex-flow: column;
   margin: 20px;
   background: yellow;
-  width: 200px;
+  width: 210px;
   height: 100%;
+  margin-bottom: 20px;
 
   .img {
     width: 200px;
