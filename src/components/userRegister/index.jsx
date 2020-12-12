@@ -24,11 +24,11 @@ const formItemLayout = {
 const tailFormItemLayout = {
   wrapperCol: {
     xs: {
-      span: 24,
+      span: 100,
       offset: 0,
     },
     sm: {
-      span: 16,
+      span: 100,
       offset: 8,
     },
   },
@@ -73,7 +73,9 @@ const RegistrationForm = () => {
   return (
     <>
       <div className="form-register">
-        <h3>Cadastre-se em nossa plataforma</h3>
+        <br /><br />
+        <h2 style={{"color": "white"}}>Cadastre-se em nossa plataforma</h2>
+        <br /><br />
         <Form
           {...formItemLayout}
           form={form}
@@ -247,7 +249,7 @@ const RegistrationForm = () => {
           </Form.Item>
 
           <Form.Item {...tailFormItemLayout}>
-            <Button type="primary" htmlType="submit">
+            <Button htmlType="submit">
               Cadastrar
             </Button>
           </Form.Item>
