@@ -1,21 +1,19 @@
-import "antd/dist/antd.css";
+import { Navbar, Form, Nav } from "react-bootstrap";
 import "./index.css";
-import { Menu, Layout } from "antd";
 import { useHistory, useLocation } from "react-router-dom";
-import {useState} from "react"
+import { useState } from "react";
 
 const NavBar = () => {
   const history = useHistory();
-  const location = useLocation()
-  const [token, setToken] = useState(false)
-  const path = location.pathname
+  const location = useLocation();
+  const [token, setToken] = useState(false);
+  const path = location.pathname;
 
-
-const cleanStorage = () => {
-  localStorage.idLoged = null;
-  history.push("/");
-  console.log("Storage is cleaned");
-};
+  const cleanStorage = () => {
+    localStorage.idLoged = null;
+    history.push("/");
+    console.log("Storage is cleaned");
+  };
 
   const checkToken = () => {
     if (localStorage.idLoged === undefined) {
@@ -27,30 +25,66 @@ const cleanStorage = () => {
       return true;
     }
   };
-  
 
   return (
-    <div>
-      <Layout>
-        
-        
-        
-        
-      
-          <Menu mode="horizontal" defaultSelectedKeys={["/"]} selectedKeys={[location.pathname]}>
-            
-            {(((path === "/" ) || (path === "/register") || (path === "/login"))) && checkToken && (<Menu.Item key="logo"> <img id="logomarca" src="https://i.postimg.cc/8zT15c9g/logo-Mini-white.png" alt="oi" onClick={() => {history.push("/")}}/></Menu.Item>)}
-            {(((path === "/" ) || (path === "/register") || (path === "/login"))) && checkToken && (<Menu.Item key="login" onClick={() => {history.push("/login")}}>Login</Menu.Item>)}
-            {(((path === "/" ) || (path === "/register") || (path === "/login"))) && checkToken && (<Menu.Item key="register" onClick={() => {history.push("/register")}}>Cadastro</Menu.Item>)}
+    <>
+      <Navbar bg="light" expand="lg">
+        <Navbar.Brand
+          onClick={() => {
+            history.push("/");
+          }}
+        >
+          <img
+            alt="logo kenziehub"
+            src="https://i.postimg.cc/8zT15c9g/logo-Mini-white.png"
+          />
+        </Navbar.Brand>
 
-            {(path === "/home" )  && checkToken && (<Menu.Item key="logog"> <img id="logomarca" src="https://i.postimg.cc/8zT15c9g/logo-Mini-white.png" alt="oi" onClick={() => {history.push("/")}}/></Menu.Item>)}
-            {(path === "/home" )  && checkToken && (<Menu.Item key="home" onClick={() => {history.push("/home")}}>Dashboard</Menu.Item>)}
-            {(path === "/home" )   && checkToken && (<Menu.Item key="logoff" onClick={cleanStorage}>Logoff</Menu.Item>)}
-
-          </Menu>
-      
-      </Layout>
-    </div>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto"></Nav>
+          <Form inline>
+            {(path === "/" || path === "/register" || path === "/login") &&
+              checkToken && (
+                <Nav.Link
+                  key="login"
+                  onClick={() => {
+                    history.push("/login");
+                  }}
+                >
+                  LOGIN
+                </Nav.Link>
+              )}
+            {(path === "/" || path === "/register" || path === "/login") &&
+              checkToken && (
+                <Nav.Link
+                  key="register"
+                  onClick={() => {
+                    history.push("/register");
+                  }}
+                >
+                  CADASTRO
+                </Nav.Link>
+              )}
+            {path === "/home" && checkToken && (
+              <Nav.Link
+                key="home"
+                onClick={() => {
+                  history.push("/home");
+                }}
+              >
+                DASHBOARD
+              </Nav.Link>
+            )}
+            {path === "/home" && checkToken && (
+              <Nav.Link key="logoff" onClick={cleanStorage}>
+                LOGOFF
+              </Nav.Link>
+            )}
+          </Form>
+        </Navbar.Collapse>
+      </Navbar>
+    </>
   );
 };
 export default NavBar;

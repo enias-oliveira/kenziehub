@@ -3,6 +3,7 @@ import RegistrationForm from "../../components/userRegister";
 import NavBar from "../../components/navbar";
 import CarouselSlider from "../../components/sliderCarousel";
 
+
 import styled from "styled-components";
 
 const Register = () => {
@@ -11,6 +12,7 @@ const Register = () => {
       <NavBar />
       <CarouselSlider />
       <Container>
+        <br/>
         <RegistrationForm />
       </Container>
     </>

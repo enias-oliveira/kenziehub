@@ -7,6 +7,7 @@ import axios from "axios";
 import ListUserHome from "../../components/listUserHome";
 import NavBar from "../../components/navbar";
 
+
 import styled from "styled-components";
 
 import { showUsersThunk } from "../../store/modules/usersBasics/thunks";
@@ -31,7 +32,7 @@ const Home = () => {
 
   return (
     <Container>
-      <NavBar />
+      <NavBar/>
 
       <main>
         <Perfil>
