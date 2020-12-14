@@ -2,9 +2,18 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { showProfileThunk } from "../../store/modules/profile/thunks";
 
-import { Avatar, Typography, List, Card } from "antd";
+import { Typography, List, Card } from "antd";
 import { FaLinkedin } from "react-icons/fa";
 import { MdClass } from "react-icons/md";
+
+import { AddTech } from "./addTech";
+import { EditTech } from "./editTech";
+import { DeleteTech } from "./deleteTech";
+import { AddWork } from "./addWork";
+import { EditWork } from "./editWork";
+import { DeleteWork } from "./deleteWork";
+import { EditProfile } from "./editProfile";
+import { EditAvatar } from "./editAvatar";
 
 const { Title, Text } = Typography;
 
@@ -12,7 +21,7 @@ const PerfilUser = ({ id, userLoged = true }) => {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile);
 
-  // const id = "8b8e50a6-50c2-4718-b817-2d38cad0c8f4";
+  const token = localStorage.getItem("authToken");
 
   useEffect(() => {
     dispatch(showProfileThunk(id));
@@ -21,7 +30,11 @@ const PerfilUser = ({ id, userLoged = true }) => {
   return (
     <>
       <div style={{ display: "flex", alignItems: "center" }}>
-        <Avatar size={64} src={profile.avatar_url} />
+        <EditAvatar
+          id={id}
+          token={token}
+          profileAvatarUrl={profile.avatar_url}
+        />
         <div
           style={{ marginLeft: 20, display: "flex", flexDirection: "column" }}
         >
@@ -38,28 +51,30 @@ const PerfilUser = ({ id, userLoged = true }) => {
             {""}
             {profile.course_module}
           </Text>
+          {userLoged && <EditProfile id={id} token={token} />}
         </div>
       </div>
 
       <div style={{ marginTop: 20 }}>
         <Title level={4}>Tecnologias</Title>
-        {userLoged && <button>ADD +</button>}
+        {userLoged && <AddTech token={token} />}
         <List
           grid={{ gutter: 16, column: 4 }}
           dataSource={profile.techs}
           renderItem={(item) => (
             <List.Item>
-              <Card title={item.title}>{item.status}</Card>
-              {userLoged && (
-                <button onClick={() => console.log("ID: ", item.id)}>
-                  Edit
-                </button>
-              )}
+              <Card
+                title={item.title}
+                extra={<DeleteTech id={item.id} token={token} />}
+              >
+                {item.status}
+              </Card>
+              {userLoged && <EditTech id={item.id} token={token} />}
             </List.Item>
           )}
         />
         <Title level={4}>Works</Title>
-        {userLoged && <button>ADD +</button>}
+        {userLoged && <AddWork token={token} />}
 
         <List
           itemLayout="horizontal"
@@ -70,11 +85,8 @@ const PerfilUser = ({ id, userLoged = true }) => {
                 title={<a href={item.deploy_url}>{item.title}</a>}
                 description={item.description}
               />
-              {userLoged && (
-                <button onClick={() => console.log("ID: ", item.id)}>
-                  Edit
-                </button>
-              )}
+              {userLoged && <DeleteWork id={item.id} token={token} />}
+              {userLoged && <EditWork id={item.id} token={token} />}
             </List.Item>
           )}
         />
