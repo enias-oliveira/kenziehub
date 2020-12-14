@@ -1,3 +1,3 @@
-import { USER_BASICS } from "./types";
+import { USER_GET } from "./types";
 
-export const showUsers = (list) => ({ type: USER_BASICS, list });
+export const showUsers = (list) => ({ type: USER_GET, list });

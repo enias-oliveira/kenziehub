@@ -1,20 +1,33 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { showUsersThunk } from "../../store/modules/usersBasics/thunks";
+import axios from "axios";
+
+import ListUserHome from "../../components/listUserHome";
 import NavBar from "../../components/navbar";
-import ListUser from "../../components/listUser";
+
+import styled from "styled-components";
+
+import { showUsersThunk } from "../../store/modules/usersBasics/thunks";
 
 const Home = () => {
   const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
+  const [infoLoged, setInfoLoged] = useState({});
+  const idLoged = localStorage.getItem("idLoged");
+  // console.log("IDLoged: ", idLoged);
+
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    dispatch(showUsersThunk(16, 5));
-  }, []);
+    dispatch(showUsersThunk(12, page));
 
-  console.log("Home: ", users);
+    axios.get(`https://kenziehub.me/users/${idLoged}`).then((res) => {
+      console.log("DataHome: ", res.data);
+      setInfoLoged(res.data);
+    });
+  }, [dispatch, page]);
 
   return (
     <Container>
@@ -22,17 +35,23 @@ const Home = () => {
 
       <main>
         <Perfil>
-          <div className="img">
-            <img
-              src="https://raw.githubusercontent.com/hom-bahrani/react-profile-card/master/src/placeholder.png"
-              alt="user"
-            />
-          </div>
-          <div className="name">User da Silva</div>
+          <Link to="/profile">
+            <div className="img">
+              <img
+                src={
+                  infoLoged.avatar_url
+                    ? infoLoged.avatar_url
+                    : "https://raw.githubusercontent.com/hom-bahrani/react-profile-card/master/src/placeholder.png"
+                }
+                alt="user"
+              />
+            </div>
+          </Link>
+          <div className="name">{<b>{infoLoged.name}</b>}</div>
           <Link className="editar">editar perfil</Link>
         </Perfil>
         <TimeLine>
-          <ListUser users={users} basic={true} />
+          <ListUserHome users={users} currentPage={page} setPage={setPage} />
         </TimeLine>
       </main>
     </Container>
@@ -56,8 +75,9 @@ const Perfil = styled.div`
   flex-flow: column;
   margin: 20px;
   background: yellow;
-  width: 200px;
+  width: 210px;
   height: 100%;
+  margin-bottom: 20px;
 
   .img {
     width: 200px;
