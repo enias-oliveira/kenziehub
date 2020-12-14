@@ -44,6 +44,7 @@ export const EditTech = ({ id }) => {
 
   const success = () => {
     message.success("Tecnologia atualizada com sucesso");
+    window.location.reload();
   };
 
   const erro = (messageError) => {

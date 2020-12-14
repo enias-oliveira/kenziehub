@@ -21,6 +21,7 @@ export const DeleteTech = ({ id, token }) => {
 
   const success = () => {
     message.success("Tecnologia excluída com sucesso");
+    window.location.reload();
   };
 
   const erro = (messageError) => {
