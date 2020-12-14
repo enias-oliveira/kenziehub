@@ -69,6 +69,7 @@ export const AddWork = ({ token }) => {
 
   const success = () => {
     message.success("Trabalho criado com sucesso");
+    window.location.reload();
   };
 
   const erro = (messageError) => {

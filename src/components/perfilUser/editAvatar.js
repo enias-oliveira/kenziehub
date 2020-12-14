@@ -8,6 +8,7 @@ export const EditAvatar = ({ token, profileAvatarUrl }) => {
 
   const success = () => {
     message.success("Foto de perfil alterada com sucesso!");
+    window.location.reload();
   };
 
   const erro = (messageError) => {

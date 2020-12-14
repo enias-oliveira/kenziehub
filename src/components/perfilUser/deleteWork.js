@@ -21,6 +21,7 @@ export const DeleteWork = ({ id, token }) => {
 
   const success = () => {
     message.success("Trabalho excluído com sucesso");
+    window.location.reload();
   };
 
   const erro = (messageError) => {
