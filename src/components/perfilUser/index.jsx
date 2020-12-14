@@ -65,7 +65,7 @@ const PerfilUser = ({ id, userLoged = true }) => {
             <List.Item>
               <Card
                 title={item.title}
-                extra={<DeleteTech id={item.id} token={token} />}
+                extra={userLoged && <DeleteTech id={item.id} token={token} />}
               >
                 {item.status}
               </Card>

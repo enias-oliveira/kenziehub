@@ -60,7 +60,10 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
 
 export const EditProfile = ({ id, token }) => {
   const [visible, setVisible] = useState(false);
-  const success = (messageSuccess) => message.success(messageSuccess);
+  const success = (messageSuccess) => {
+    message.success(messageSuccess);
+    window.location.reload();
+  };
 
   const erro = (messageError) => {
     message.error(messageError);

@@ -64,6 +64,7 @@ export const AddTech = ({ token }) => {
 
   const success = ({ title, status }) => {
     message.success(`Sucesso - ${title}: ${status}`);
+    window.location.reload();
   };
 
   const erro = (messageError) => {
@@ -84,9 +85,7 @@ export const AddTech = ({ token }) => {
       data: values,
     };
     axios(config)
-      .then(function (response) {
-        success(response.data);
-      })
+      .then((response) => success(response.data))
       .catch((error) => erro(error.response.data.message));
   };
 
