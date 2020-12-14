@@ -49,9 +49,7 @@ const Home = () => {
           </Link>
           <div className="name">{<b>{infoLoged.name}</b>}</div>
         </Perfil>
-        <TimeLine>
-          <ListUserHome users={users} currentPage={page} setPage={setPage} />
-        </TimeLine>
+        <ListUserHome users={users} currentPage={page} setPage={setPage} />
       </main>
     </Container>
   );
@@ -66,6 +64,12 @@ const Container = styled.div`
 
   main {
     display: flex;
+  }
+
+  @media only screen and (max-width: 768px) {
+    main {
+      flex-direction: column;
+    }
   }
 `;
 
@@ -97,12 +101,16 @@ const Perfil = styled.div`
     color: #323232;
     text-align: center;
   }
-`;
 
-const TimeLine = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  margin: 20px 20px 0 0;
-  background: #3b00ff;
-  max-height: 100vh;
+  @media only screen and (max-width: 768px) {
+    margin: auto;
+    margin-top: 1rem;
+    .img {
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
 `;

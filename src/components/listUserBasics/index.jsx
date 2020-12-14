@@ -10,8 +10,8 @@ const ListUserBasics = ({ users }) => {
           gutter: 15,
           xs: 1,
           sm: 2,
-          md: 5,
-          lg: 5,
+          md: 3,
+          lg: 4,
           xl: 5,
           xxl: 5,
         }}
