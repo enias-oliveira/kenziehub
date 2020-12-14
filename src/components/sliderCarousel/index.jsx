@@ -26,7 +26,7 @@ const image2 = () => {
 const image3 = () => {
   return (
     <img
-      src="https://i.postimg.cc/CwcMCzMr/banner-oficial03.jpg"
+      src="https://i.postimg.cc/Ytw4V6Rj/banner-oficial03-1.jpg"
       height="100%"
       width="100%"
       alt="oi"

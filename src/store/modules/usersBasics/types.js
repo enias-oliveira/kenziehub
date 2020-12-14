@@ -1,1 +1,1 @@
-export const USER_BASICS = "@LISTUSERSBASICS/SHOW";
+export const USER_GET = "@USER/GET";

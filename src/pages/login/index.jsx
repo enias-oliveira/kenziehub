@@ -78,10 +78,10 @@ const Login = () => {
             <Input.Password placeholder="@Password123" />
           </Form.Item>
           <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-            <Button type="primary" htmlType="submit">
+            <Button  htmlType="submit">
               Login
-            </Button>{" "}
-            ou <a href="/register">Cadastre-se</a>
+            </Button>
+            <Button onClick={()=>{history.push("/register")}}> Cadastrar-se</Button>
           </Form.Item>
         </Form>
       </Container>
@@ -97,6 +97,7 @@ export const Container = styled.div`
   margin: 0 auto;
   width: 50vw;
   height: 60vh;
+  
 `;
 
 export default Login;
