@@ -7,7 +7,7 @@ const ProfileUsers = () => {
   return (
     <>
       {/* <NavBar /> */}
-      <PerfilUser id={storage} />
+      <PerfilUser id={storage} userLoged={false} />
     </>
   );
 };

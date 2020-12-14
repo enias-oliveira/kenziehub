@@ -1,7 +1,8 @@
 import ProfileUser from "../../components/perfilUser";
 
 const Profile = () => {
-  return <ProfileUser />;
+  const storage = localStorage.getItem("idLoged");
+  return <ProfileUser id={storage} />;
 };
 
 export default Profile;
