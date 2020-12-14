@@ -3,10 +3,11 @@ import NavBar from "../../components/navbar";
 import PerfilUser from "../../components/perfilUser";
 
 const ProfileUsers = () => {
+  const storage = localStorage.getItem("idCommunity");
   return (
     <>
       {/* <NavBar /> */}
-      <PerfilUser />
+      <PerfilUser id={storage} />
     </>
   );
 };

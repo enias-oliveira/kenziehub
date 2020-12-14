@@ -6,7 +6,7 @@ import axios from "axios";
 
 import ListUserHome from "../../components/listUserHome";
 import NavBar from "../../components/navbar";
-import Navigation from "../../components/navbar/navigation";
+
 
 import styled from "styled-components";
 
@@ -32,7 +32,7 @@ const Home = () => {
 
   return (
     <Container>
-      <Navigation/>
+      <NavBar/>
 
       <main>
         <Perfil>

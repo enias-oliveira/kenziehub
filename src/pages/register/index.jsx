@@ -2,16 +2,17 @@ import React from "react";
 import RegistrationForm from "../../components/userRegister";
 import NavBar from "../../components/navbar";
 import CarouselSlider from "../../components/sliderCarousel";
-import Navigation from "../../components/navbar/navigation";
+
 
 import styled from "styled-components";
 
 const Register = () => {
   return (
     <>
-      <Navigation />
+      <NavBar />
       <CarouselSlider />
       <Container>
+        <br/>
         <RegistrationForm />
       </Container>
     </>
