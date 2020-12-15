@@ -11,12 +11,13 @@ const NavBar = () => {
 
   const cleanStorage = () => {
     localStorage.idLoged = null;
-    history.push("/");
+    localStorage.authToken = null;
+      history.push("/");
     console.log("Storage is cleaned");
   };
 
   const checkToken = () => {
-    if (localStorage.idLoged === undefined) {
+    if (localStorage.authToken === undefined) {
       setToken(false);
       return false;
     }
@@ -65,21 +66,27 @@ const NavBar = () => {
                   CADASTRO
                 </Nav.Link>
               )}
-            {(path === "/home" || path === "/profile") && checkToken && (
-              <Nav.Link
-                key="home"
-                onClick={() => {
-                  history.push("/home");
-                }}
-              >
-                DASHBOARD
-              </Nav.Link>
-            )}
-            {(path === "/home" || path === "/profile") && checkToken && (
-              <Nav.Link key="logoff" onClick={cleanStorage}>
-                LOGOFF
-              </Nav.Link>
-            )}
+            {(path === "/home" ||
+              path === "/profile" ||
+              path === "/profile-users") &&
+              checkToken && (
+                <Nav.Link
+                  key="home"
+                  onClick={() => {
+                    history.push("/home");
+                  }}
+                >
+                  DASHBOARD
+                </Nav.Link>
+              )}
+            {(path === "/home" ||
+              path === "/profile" ||
+              path === "/profile-users") &&
+              checkToken && (
+                <Nav.Link key="logoff" onClick={cleanStorage}>
+                  LOGOFF
+                </Nav.Link>
+              )}
           </Form>
         </Navbar.Collapse>
       </Navbar>
