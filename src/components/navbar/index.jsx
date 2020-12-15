@@ -10,7 +10,7 @@ const NavBar = () => {
   const path = location.pathname;
 
   const cleanStorage = () => {
-    localStorage.idLoged = null;
+    localStorage.clear();
     history.push("/");
     console.log("Storage is cleaned");
   };
