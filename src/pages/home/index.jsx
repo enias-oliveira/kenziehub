@@ -11,6 +11,8 @@ import styled from "styled-components";
 
 import { showUsersThunk } from "../../store/modules/usersBasics/thunks";
 
+import {Tooltip} from "antd"
+
 const Home = () => {
   const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
@@ -34,21 +36,23 @@ const Home = () => {
       <NavBar />
       <Container>
         <main>
-          <Perfil>
-            <Link to="/profile">
-              <div className="img">
-                <img
-                  src={
-                    infoLoged.avatar_url
-                      ? infoLoged.avatar_url
-                      : "https://raw.githubusercontent.com/hom-bahrani/react-profile-card/master/src/placeholder.png"
-                  }
-                  alt="user"
-                />
-              </div>
-            </Link>
-            <div className="name">{<b>{infoLoged.name}</b>}</div>
-          </Perfil>
+          <Tooltip placement="bottom" title="Clique para editar seu perfil">
+            <Perfil>
+              <Link to="/profile">
+                <div className="img">
+                  <img
+                    src={
+                      infoLoged.avatar_url
+                        ? infoLoged.avatar_url
+                        : "https://raw.githubusercontent.com/hom-bahrani/react-profile-card/master/src/placeholder.png"
+                    }
+                    alt="user"
+                  />
+                </div>
+              </Link>
+              <div className="name">{<b>{infoLoged.name}</b>}</div>
+            </Perfil>
+          </Tooltip>
           <ListUserHome users={users} currentPage={page} setPage={setPage} />
         </main>
       </Container>
