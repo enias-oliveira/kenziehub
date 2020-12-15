@@ -6,7 +6,7 @@ const ProfileUsers = () => {
   const storage = localStorage.getItem("idCommunity");
   return (
     <>
-      {/* <NavBar /> */}
+      <NavBar />
       <PerfilUser id={storage} userLoged={false} />
     </>
   );

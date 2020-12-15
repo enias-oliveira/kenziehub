@@ -50,8 +50,11 @@ const Login = () => {
   return (
     <>
       <NavBar />
-      <CarouselSlider />
+ 
+
       <Container>
+        <h2 style={{"color": "white"}}>Login</h2>
+        <br/>
         <Form
           {...layout}
           name="nest-messages"
@@ -78,10 +81,15 @@ const Login = () => {
             <Input.Password placeholder="@Password123" />
           </Form.Item>
           <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-            <Button  htmlType="submit">
-              Login
+            <Button htmlType="submit">Login</Button>
+            <Button
+              onClick={() => {
+                history.push("/register");
+              }}
+            >
+              {" "}
+              Cadastrar-se
             </Button>
-            <Button onClick={()=>{history.push("/register")}}> Cadastrar-se</Button>
           </Form.Item>
         </Form>
       </Container>
