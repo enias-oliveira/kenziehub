@@ -5,13 +5,13 @@ const ListUserHome = ({ users, currentPage, setPage }) => {
   return (
     <>
       <List
-        style={{ background: "blue", padding: "1rem" }}
+        style={{ padding: "2rem" }}
         grid={{
           gutter: 12,
           xs: 1,
           sm: 2,
-          md: 4,
-          lg: 4,
+          md: 3,
+          lg: 3,
           xl: 4,
           xxl: 4,
         }}
@@ -19,7 +19,8 @@ const ListUserHome = ({ users, currentPage, setPage }) => {
           onChange: (page) => setPage(page),
           pageSize: 12,
           current: currentPage,
-          total: 200,
+          total: 300,
+          background: "blue",
         }}
         dataSource={users}
         renderItem={(user) => (

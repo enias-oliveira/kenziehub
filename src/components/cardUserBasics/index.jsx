@@ -13,7 +13,7 @@ const CardUserBasics = ({ user }) => {
           flexDirection: "column",
           alignContent: "space-evenly",
           width: "100%",
-          height: "10rem",
+          height: "15rem",
         }}
       >
         <Meta

@@ -1,19 +1,11 @@
 import { Card } from "antd";
-import { useHistory } from "react-router-dom";
 const { Meta } = Card;
 
 const CardUserHome = ({ user }) => {
-  const history = useHistory();
-
-  const getIdCard = (id) => {
-    console.log("CardUsers ", id);
-    localStorage.setItem("idCommunity", id);
-    history.push("/profile-users");
-  };
   return (
     <>
       <Card
-        onClick={() => getIdCard(user.id)}
+        onClick={() => console.log("Card Clicked")}
         hoverable
         cover={
           <img
@@ -23,10 +15,10 @@ const CardUserHome = ({ user }) => {
                 ? user.avatar_url
                 : "https://www.nicepng.com/png/full/73-730154_open-default-profile-picture-png.png"
             }
-            style={{ height: "15rem" }}
+            style={{ height: "11rem" }}
           />
         }
-        style={{ height: "23rem", width: "15rem" }}
+        style={{ height: "24rem", width: "14rem" }}
       >
         <Meta title={user.name} description={user.course_module} />
         {!!user.title && (
