@@ -1,11 +1,20 @@
 import { Card } from "antd";
+import { useHistory } from "react-router-dom";
 const { Meta } = Card;
 
 const CardUserHome = ({ user }) => {
+  const history = useHistory();
+
+  const getIdCard = (id) => {
+    console.log("CardUsers ", id);
+    localStorage.setItem("idCommunity", id);
+    history.push("/profile-users");
+  };
+
   return (
     <>
       <Card
-        onClick={() => console.log("Card Clicked")}
+        onClick={() => getIdCard(user.id)}
         hoverable
         cover={
           <img
