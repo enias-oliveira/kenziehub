@@ -36,7 +36,7 @@ export const EditAvatar = ({ token, profileAvatarUrl }) => {
   return (
     <div>
       <Avatar
-        size={64}
+        size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}
         src={profileAvatarUrl}
         onClick={() => {
           setVisible(true);

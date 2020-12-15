@@ -3,27 +3,21 @@ import RegistrationForm from "../../components/userRegister";
 import NavBar from "../../components/navbar";
 import CarouselSlider from "../../components/sliderCarousel";
 
-
 import styled from "styled-components";
 
 const Register = () => {
   return (
     <>
       <NavBar />
-     
+
       <Container>
-       
         <RegistrationForm />
       </Container>
     </>
   );
 };
 
-
-
-
 export const Container = styled.div`
-  
   flex-direction: column;
   align-items: center;
   justify-content: center;

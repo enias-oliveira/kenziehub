@@ -59,7 +59,16 @@ const PerfilUser = ({ id, userLoged = true }) => {
         <Title level={4}>Tecnologias</Title>
         {userLoged && <AddTech token={token} />}
         <List
-          grid={{ gutter: 16, column: 4 }}
+          grid={{
+            gutter: 16,
+            column: 4,
+            xs: 2,
+            sm: 2,
+            md: 3,
+            lg: 4,
+            xl: 5,
+            xxl: 5,
+          }}
           dataSource={profile.techs}
           renderItem={(item) => (
             <List.Item>

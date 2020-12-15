@@ -62,7 +62,7 @@ const RegistrationForm = () => {
       .then((response) => {
         console.log("user successful registration", response);
         successNotification();
-        history.push("/");
+        history.push("/login");
       })
       .catch((error) => errorNotification());
   };
