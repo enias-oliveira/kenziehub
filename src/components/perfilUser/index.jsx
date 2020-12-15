@@ -6,6 +6,8 @@ import { Typography, List, Card } from "antd";
 import { FaLinkedin } from "react-icons/fa";
 import { MdClass } from "react-icons/md";
 
+import "./index.css"
+
 import { AddTech } from "./addTech";
 import { EditTech } from "./editTech";
 import { DeleteTech } from "./deleteTech";
@@ -29,7 +31,7 @@ const PerfilUser = ({ id, userLoged = true }) => {
 
   return (
     <>
-      <div style={{ display: "flex", alignItems: "center" }}>
+      <div className="profile-user" style={{ display: "flex", alignItems: "center" }}>
         <EditAvatar
           id={id}
           token={token}
@@ -42,7 +44,7 @@ const PerfilUser = ({ id, userLoged = true }) => {
           <Text>
             <FaLinkedin />{" "}
             <a href={`https://www.linkedin.com/in/${profile.contact}/`}>
-              {profile.contact}
+              Meu Linkedin
             </a>{" "}
             | {profile.bio}
           </Text>
