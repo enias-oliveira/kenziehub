@@ -21,7 +21,7 @@ const CardUserHome = ({ user }) => {
             src={
               !!user.avatar_url
                 ? user.avatar_url
-                : "https://www.nicepng.com/png/full/73-730154_open-default-profile-picture-png.png"
+                : "https://i.postimg.cc/dV5zS0bc/avatar-default.png"
             }
             style={{ height: "11rem", width: "11rem", margin: "1rem auto" }}
           />

@@ -13,7 +13,7 @@ const ListUserHome = ({ users, currentPage, setPage }) => {
           md: 3,
           lg: 3,
           xl: 4,
-          xxl: 6,
+          xxl: 4,
         }}
         pagination={{
           onChange: (page) => setPage(page),
