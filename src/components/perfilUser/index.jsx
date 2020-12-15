@@ -31,7 +31,10 @@ const PerfilUser = ({ id, userLoged = true }) => {
 
   return (
     <>
-      <div className="profile-user" style={{ display: "flex", alignItems: "center" }}>
+      <div
+        className="profile-user"
+        style={{ display: "flex", alignItems: "center" }}
+      >
         <EditAvatar
           id={id}
           token={token}
@@ -46,7 +49,7 @@ const PerfilUser = ({ id, userLoged = true }) => {
             <a href={`https://www.linkedin.com/in/${profile.contact}/`}>
               Meu Linkedin
             </a>{" "}
-            | {profile.bio}
+            <br/>{profile.bio}
           </Text>
           <Text>
             <MdClass />
@@ -57,50 +60,52 @@ const PerfilUser = ({ id, userLoged = true }) => {
         </div>
       </div>
 
-      <div style={{ marginTop: 20 }}>
-        <Title level={4}>Tecnologias</Title>
-        {userLoged && <AddTech token={token} />}
-        <List
-          grid={{
-            gutter: 16,
-            column: 4,
-            xs: 2,
-            sm: 2,
-            md: 3,
-            lg: 4,
-            xl: 5,
-            xxl: 5,
-          }}
-          dataSource={profile.techs}
-          renderItem={(item) => (
-            <List.Item>
-              <Card
-                title={item.title}
-                extra={userLoged && <DeleteTech id={item.id} token={token} />}
-              >
-                {item.status}
-              </Card>
-              {userLoged && <EditTech id={item.id} token={token} />}
-            </List.Item>
-          )}
-        />
-        <Title level={4}>Works</Title>
-        {userLoged && <AddWork token={token} />}
+      <div className="techs-and-works">
+        <div style={{ marginTop: 20 }}>
+          <Title level={4}>Tecnologias</Title>
+          {userLoged && <AddTech token={token} />}
+          <List
+            grid={{
+              gutter: 16,
+              column: 4,
+              xs: 2,
+              sm: 2,
+              md: 3,
+              lg: 4,
+              xl: 5,
+              xxl: 5,
+            }}
+            dataSource={profile.techs}
+            renderItem={(item) => (
+              <List.Item>
+                <Card
+                  title={item.title}
+                  extra={userLoged && <DeleteTech id={item.id} token={token} />}
+                >
+                  {item.status}
+                </Card>
+                {userLoged && <EditTech id={item.id} token={token} />}
+              </List.Item>
+            )}
+          />
+          <Title level={4}>Works</Title>
+          {userLoged && <AddWork token={token} />}
 
-        <List
-          itemLayout="horizontal"
-          dataSource={profile.works}
-          renderItem={(item) => (
-            <List.Item>
-              <List.Item.Meta
-                title={<a href={item.deploy_url}>{item.title}</a>}
-                description={item.description}
-              />
-              {userLoged && <DeleteWork id={item.id} token={token} />}
-              {userLoged && <EditWork id={item.id} token={token} />}
-            </List.Item>
-          )}
-        />
+          <List
+            itemLayout="horizontal"
+            dataSource={profile.works}
+            renderItem={(item) => (
+              <List.Item>
+                <List.Item.Meta
+                  title={<a href={item.deploy_url}>{item.title}</a>}
+                  description={item.description}
+                />
+                {userLoged && <DeleteWork id={item.id} token={token} />}
+                {userLoged && <EditWork id={item.id} token={token} />}
+              </List.Item>
+            )}
+          />
+        </div>
       </div>
     </>
   );
