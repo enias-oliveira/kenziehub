@@ -35,14 +35,16 @@ export const EditAvatar = ({ token, profileAvatarUrl }) => {
 
   return (
     <div>
-      <Avatar
-        size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}
-        src={profileAvatarUrl}
-        onClick={() => {
-          setVisible(true);
-        }}
-        style={{ cursor: "pointer" }}
-      />
+      <div className= "avatar">
+        <Avatar
+          size={{ xs: 100, sm: 130, md: 140, lg: 140, xl: 140, xxl: 140 }}
+          src={profileAvatarUrl}
+          onClick={() => {
+            setVisible(true);
+          }}
+          style={{ cursor: "pointer" }}
+        />
+      </div>
       <Modal
         visible={visible}
         title="Nova foto de perfil"

@@ -36,7 +36,7 @@ const Home = () => {
       <NavBar />
       <Container>
         <main>
-          <Tooltip placement="bottom" title="Clique para editar seu perfil">
+          <Tooltip placement="bottom" title="Clique para editar seu perfil e inserir um novo avatar">
             <Perfil>
               <Link to="/profile">
                 <div className="img">
@@ -44,13 +44,19 @@ const Home = () => {
                     src={
                       infoLoged.avatar_url
                         ? infoLoged.avatar_url
-                        : "https://raw.githubusercontent.com/hom-bahrani/react-profile-card/master/src/placeholder.png"
+                        : "https://i.postimg.cc/dV5zS0bc/avatar-default.png"
                     }
                     alt="user"
                   />
                 </div>
               </Link>
-              <div className="name">{<b>{infoLoged.name}</b>}</div>
+              <div className="name">
+                {
+                  <b>
+                    <h4>{infoLoged.name}</h4>
+                  </b>
+                }
+              </div>
             </Perfil>
           </Tooltip>
           <ListUserHome users={users} currentPage={page} setPage={setPage} />

@@ -5,15 +5,15 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 import NavBar from "../../components/navbar";
-import CarouselSlider from "../../components/sliderCarousel";
+
 
 const Login = () => {
   const history = useHistory();
   const url = "https://kenziehub.me/sessions";
 
   const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
+    labelCol: { span: 250 },
+    wrapperCol: { span: 216 },
   };
 
   const validateMessages = {
@@ -50,11 +50,13 @@ const Login = () => {
   return (
     <>
       <NavBar />
- 
 
       <Container>
-        <h2 style={{"color": "white"}}>Login</h2>
-        <br/>
+                <h2 style={{ color: "white" }}>
+          Logue-se agora mesmo!{" "}
+          
+        </h2>
+        <br />
         <Form
           {...layout}
           name="nest-messages"
@@ -78,7 +80,7 @@ const Login = () => {
               },
             ]}
           >
-            <Input.Password placeholder="@Password123" />
+            <Input.Password placeholder="Insira aqui a sua senha" />
           </Form.Item>
           <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
             <Button htmlType="submit">Login</Button>
