@@ -30,28 +30,29 @@ const Home = () => {
   }, [dispatch, page]);
 
   return (
-    <Container>
+    <>
       <NavBar />
-
-      <main>
-        <Perfil>
-          <Link to="/profile">
-            <div className="img">
-              <img
-                src={
-                  infoLoged.avatar_url
-                    ? infoLoged.avatar_url
-                    : "https://raw.githubusercontent.com/hom-bahrani/react-profile-card/master/src/placeholder.png"
-                }
-                alt="user"
-              />
-            </div>
-          </Link>
-          <div className="name">{<b>{infoLoged.name}</b>}</div>
-        </Perfil>
-        <ListUserHome users={users} currentPage={page} setPage={setPage} />
-      </main>
-    </Container>
+      <Container>
+        <main>
+          <Perfil>
+            <Link to="/profile">
+              <div className="img">
+                <img
+                  src={
+                    infoLoged.avatar_url
+                      ? infoLoged.avatar_url
+                      : "https://raw.githubusercontent.com/hom-bahrani/react-profile-card/master/src/placeholder.png"
+                  }
+                  alt="user"
+                />
+              </div>
+            </Link>
+            <div className="name">{<b>{infoLoged.name}</b>}</div>
+          </Perfil>
+          <ListUserHome users={users} currentPage={page} setPage={setPage} />
+        </main>
+      </Container>
+    </>
   );
 };
 

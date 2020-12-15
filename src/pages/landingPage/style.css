@@ -1,0 +1,38 @@
+/* selector of card properties */
+
+.ant-card{
+    color: white !important;
+    background-color: #ffffff00 !important;
+}
+
+/* selector of title */
+
+.ant-card-meta-title {
+    overflow: hidden;
+    color: white;
+    font-weight: 500;
+    font-size: 25px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.583);
+}
+
+.ant-card-bordered {
+    border: 1px solid #ffffff;
+}
+
+/* selector of description */
+
+.ant-card-meta-description {
+    color: white!important;
+     font-size: 17px;
+}
+
+/* selector of courses */
+
+#main-container > div.ant-list.ant-list-split.ant-list-grid > div > div > div > div> div > div > div > div > p{
+    color: white;
+    font-size: 17px;
+}

@@ -66,7 +66,7 @@ const NavBar = () => {
                   CADASTRO
                 </Nav.Link>
               )}
-            {path === "/home" && checkToken && (
+            {(path === "/home" || path === "/profile") && checkToken && (
               <Nav.Link
                 key="home"
                 onClick={() => {
@@ -76,7 +76,7 @@ const NavBar = () => {
                 DASHBOARD
               </Nav.Link>
             )}
-            {path === "/home" && checkToken && (
+            {(path === "/home" || path === "/profile") && checkToken && (
               <Nav.Link key="logoff" onClick={cleanStorage}>
                 LOGOFF
               </Nav.Link>
