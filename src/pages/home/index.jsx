@@ -29,7 +29,7 @@ const Home = () => {
       console.log("DataHome: ", res.data);
       setInfoLoged(res.data);
     });
-  }, [dispatch, page]);
+  }, [dispatch, page, idLoged]);
 
   return (
     <>
