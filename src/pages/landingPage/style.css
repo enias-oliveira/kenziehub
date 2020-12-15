@@ -36,3 +36,8 @@
     color: white;
     font-size: 17px;
 }
+
+/* selector of warning message */
+.ant-form-item-explain.ant-form-item-explain-error {
+    color: #ffe000 !important;
+}
