@@ -20,10 +20,9 @@ const NavBar = () => {
       setToken(false);
       return false;
     }
-    {
-      setToken(true);
-      return true;
-    }
+
+    setToken(true);
+    return true;
   };
 
   return (

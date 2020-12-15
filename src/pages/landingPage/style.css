@@ -41,3 +41,14 @@
 .ant-form-item-explain.ant-form-item-explain-error {
     color: #ffe000 !important;
 }
+
+#main-container > div > div > h2{
+    text-align: center;
+}
+
+.form-register{
+    align-items: center !important;
+  
+    margin:0 auto !important;
+
+}
