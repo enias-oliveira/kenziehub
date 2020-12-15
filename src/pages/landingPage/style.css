@@ -62,6 +62,10 @@ font-size:17px;
 
 }
 
+#main-container > div.sc-dlfnbm.huUNmX{
+    background-color:#2d7aa6;
+    
+}
 
 h4.ant-typography, .ant-typography h4 {
     margin-bottom: 0.5em;
@@ -130,6 +134,24 @@ a {
     color: black!important;
 }
 
+#nest-messages > div:nth-child(3) > div > div > div{
+    width: 100% !important;
+}
+
+
+/* #nest-messages > div:nth-child(3) > div > div > div > button:nth-child(1){
+    margin-left: 15px;
+} */
+#nest-messages > div:nth-child(3) > div > div > div > button:nth-child(2){
+    margin-left: 5px;
+}
+
+#nest-messages > div:nth-child(3) > div{
+    text-align: center;
+    align-items: center;
+    justify-content:center;
+    margin: 0 auto;
+}
 
 .ant-btn{
     color: #ffffff;

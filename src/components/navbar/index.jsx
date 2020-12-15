@@ -28,68 +28,70 @@ const NavBar = () => {
 
   return (
     <>
-      <Navbar bg="light" expand="lg">
-        <Navbar.Brand
-          onClick={() => {
-            history.push("/");
-          }}
-        >
-          <img
-            alt="logo kenziehub"
-            src="https://i.postimg.cc/8zT15c9g/logo-Mini-white.png"
-          />
-        </Navbar.Brand>
+      <div className="layout-navbar">
+        <Navbar bg="light" expand="lg">
+          <Navbar.Brand
+            onClick={() => {
+              history.push("/");
+            }}
+          >
+            <img
+              alt="logo kenziehub"
+              src="https://i.postimg.cc/8zT15c9g/logo-Mini-white.png"
+            />
+          </Navbar.Brand>
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto"></Nav>
-          <Form inline>
-            {(path === "/" || path === "/register" || path === "/login") &&
-              checkToken && (
-                <Nav.Link
-                  key="login"
-                  onClick={() => {
-                    history.push("/login");
-                  }}
-                >
-                  LOGIN
-                </Nav.Link>
-              )}
-            {(path === "/" || path === "/register" || path === "/login") &&
-              checkToken && (
-                <Nav.Link
-                  key="register"
-                  onClick={() => {
-                    history.push("/register");
-                  }}
-                >
-                  CADASTRO
-                </Nav.Link>
-              )}
-            {(path === "/home" ||
-              path === "/profile" ||
-              path === "/profile-users") &&
-              checkToken && (
-                <Nav.Link
-                  key="home"
-                  onClick={() => {
-                    history.push("/home");
-                  }}
-                >
-                  DASHBOARD
-                </Nav.Link>
-              )}
-            {(path === "/home" ||
-              path === "/profile" ||
-              path === "/profile-users") &&
-              checkToken && (
-                <Nav.Link key="logoff" onClick={cleanStorage}>
-                  LOGOFF
-                </Nav.Link>
-              )}
-          </Form>
-        </Navbar.Collapse>
-      </Navbar>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto"></Nav>
+            <Form inline>
+              {(path === "/" || path === "/register" || path === "/login") &&
+                checkToken && (
+                  <Nav.Link
+                    key="login"
+                    onClick={() => {
+                      history.push("/login");
+                    }}
+                  >
+                    LOGIN
+                  </Nav.Link>
+                )}
+              {(path === "/" || path === "/register" || path === "/login") &&
+                checkToken && (
+                  <Nav.Link
+                    key="register"
+                    onClick={() => {
+                      history.push("/register");
+                    }}
+                  >
+                    CADASTRO
+                  </Nav.Link>
+                )}
+              {(path === "/home" ||
+                path === "/profile" ||
+                path === "/profile-users") &&
+                checkToken && (
+                  <Nav.Link
+                    key="home"
+                    onClick={() => {
+                      history.push("/home");
+                    }}
+                  >
+                    DASHBOARD
+                  </Nav.Link>
+                )}
+              {(path === "/home" ||
+                path === "/profile" ||
+                path === "/profile-users") &&
+                checkToken && (
+                  <Nav.Link key="logoff" onClick={cleanStorage}>
+                    LOGOFF
+                  </Nav.Link>
+                )}
+            </Form>
+          </Navbar.Collapse>
+        </Navbar>
+      </div>
     </>
   );
 };

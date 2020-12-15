@@ -5,7 +5,6 @@ form {
 .profile-user {
   display: "flex";
   align-self: "center";
-  border: 1px solid red;
   padding: 25px;
   flex-wrap: wrap;
   align-items: center !important;

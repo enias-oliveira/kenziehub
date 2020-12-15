@@ -11,6 +11,7 @@ const Register = () => {
       <NavBar />
 
       <Container>
+        
         <RegistrationForm />
       </Container>
     </>

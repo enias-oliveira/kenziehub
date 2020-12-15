@@ -73,7 +73,8 @@ const RegistrationForm = () => {
         <br />
         <br />
         <br />
-        <h2 style={{ color: "white" }}>Faça parte da KenzieHub!</h2>
+        
+        <h2 style={{ color: "white" }}>Faça parte da KenzieHub! </h2>
         <br />
         <br />
         <Form
@@ -106,7 +107,7 @@ const RegistrationForm = () => {
             ]}
             hasFeedback
           >
-            <Input placeholder="seuemail@email.com" />
+            <Input placeholder="example@example.com" />
           </Form.Item>
           <Form.Item
             name="password"
