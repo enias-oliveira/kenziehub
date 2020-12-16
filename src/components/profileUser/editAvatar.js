@@ -35,10 +35,14 @@ export const EditAvatar = ({ token, profileAvatarUrl }) => {
 
   return (
     <div>
-      <div className= "avatar">
+      <div className="avatar">
         <Avatar
           size={{ xs: 100, sm: 130, md: 140, lg: 140, xl: 140, xxl: 140 }}
-          src={profileAvatarUrl}
+          src={
+            profileAvatarUrl
+              ? profileAvatarUrl
+              : "https://i.postimg.cc/5ypGd3np/perfil-twitter.png"
+          }
           onClick={() => {
             setVisible(true);
           }}
