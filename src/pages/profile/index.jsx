@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ProfileUser from "../../components/perfilUser";
+import ProfileUser from "../../components/profileUser";
 import NavBar from "../../components/navbar";
 
 const Profile = () => {
