@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import GlobalStyle from "./styles/global";
 import LandingPage from "./pages/landingPage";
 import Login from "./pages/login";
@@ -9,12 +10,12 @@ import ProfileUsers from "./pages/profileUsers";
 
 import { Switch, Route } from "react-router-dom";
 const App = () => {
-  const [authenticate, setAuthenticate] = useState(false);
-
+  const [authenticate, setAuthenticate] = useState(undefined);
+  const history = useHistory();
   useEffect(() => {
     const token = localStorage.getItem("authToken");
 
-    if (!token) {
+    if (token === (undefined || null)) {
       setAuthenticate(false);
     } else {
       setAuthenticate(true);
@@ -31,6 +32,7 @@ const App = () => {
   }
 
   if (authenticate === false) {
+    history.push("/");
     return (
       <>
         <div id="main-container">
@@ -55,23 +57,26 @@ const App = () => {
     <>
       <div id="main-container">
         <Switch>
-          <Route exact path="/">
-            <LandingPage />
-          </Route>
-          <Route path="/login">
+          <Route exact path="/login">
             <Login />
           </Route>
-          <Route path="/register">
+          <Route exact path="/register">
             <Register />
           </Route>
-          <Route path="/profile">
+          <Route exact path="/profile">
             <Profile />
           </Route>
-          <Route path="/home">
+          <Route exact path="/home">
             <Home />
           </Route>
           <Route path="/profile-users">
             <ProfileUsers />
+          </Route>
+          <Route exact path="/profile-users/:id" component={ProfileUsers}>
+            <ProfileUsers />
+          </Route>
+          <Route exact path="/">
+            <LandingPage />
           </Route>
         </Switch>
       </div>

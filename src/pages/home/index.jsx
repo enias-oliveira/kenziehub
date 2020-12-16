@@ -22,18 +22,28 @@ const Home = () => {
 
   const [page, setPage] = useState(1);
 
+let storage = localStorage.getItem("authToken");
+
+
   useEffect(() => {
+    
+    
     dispatch(showUsersThunk(12, page));
 
     axios.get(`https://kenziehub.me/users/${idLoged}`).then((res) => {
       console.log("DataHome: ", res.data);
       setInfoLoged(res.data);
-    });
-  }, [dispatch, page]);
 
+    
+      
+    });
+  }, [dispatch, page, setInfoLoged, setPage, storage, idLoged]);
+
+  
+    
   return (
     <>
-      <NavBar />
+     <NavBar />
       <Container>
         <main>
           <Tooltip placement="bottom" title="Clique para editar seu perfil e inserir um novo avatar">
@@ -54,7 +64,7 @@ const Home = () => {
                 {
                   <b>
                     <h4>{infoLoged.name}</h4>
-                  </b>
+                 </b>
                 }
               </div>
             </Perfil>

@@ -100,6 +100,7 @@ const Login = () => {
 };
 
 export const Container = styled.div`
+margin-top:50px !important;
   display: flex;
   flex-direction: column;
   align-items: center;

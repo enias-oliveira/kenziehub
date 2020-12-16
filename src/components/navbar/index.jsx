@@ -1,6 +1,6 @@
 import { Navbar, Form, Nav } from "react-bootstrap";
 import "./index.css";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation} from "react-router-dom";
 import { useState } from "react";
 
 const NavBar = () => {
@@ -10,8 +10,9 @@ const NavBar = () => {
   const path = location.pathname;
 
   const cleanStorage = () => {
-    localStorage.idLoged = null;
-    localStorage.authToken = null;
+   localStorage.clear(); 
+    // localStorage.idLoged = null;
+    // localStorage.authToken = null;
       history.push("/");
     console.log("Storage is cleaned");
   };
@@ -20,19 +21,20 @@ const NavBar = () => {
     if (localStorage.authToken === undefined) {
       setToken(false);
       return false;
+    } else {
+      setToken(true);
+      return true;
     }
-
-    setToken(true);
-    return true;
   };
+
+  let storage = localStorage.getItem("authToken")
 
   return (
     <>
       <div className="layout-navbar">
         <Navbar bg="light" expand="lg">
-          <Navbar.Brand
-            onClick={() => {
-              history.push("/");
+          <Navbar.Brand            onClick={() => {
+              history.push("/") ;
             }}
           >
             <img
@@ -41,55 +43,21 @@ const NavBar = () => {
             />
           </Navbar.Brand>
 
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav"/>
           <Navbar.Collapse id="basic-navbar-nav">
+
             <Nav className="mr-auto"></Nav>
             <Form inline>
-              {(path === "/" || path === "/register" || path === "/login") &&
-                checkToken && (
-                  <Nav.Link
-                    key="login"
-                    onClick={() => {
-                      history.push("/login");
-                    }}
-                  >
-                    LOGIN
-                  </Nav.Link>
-                )}
-              {(path === "/" || path === "/register" || path === "/login") &&
-                checkToken && (
-                  <Nav.Link
-                    key="register"
-                    onClick={() => {
-                      history.push("/register");
-                    }}
-                  >
-                    CADASTRO
-                  </Nav.Link>
-                )}
-              {(path === "/home" ||
-                path === "/profile" ||
-                path === "/profile-users") &&
-                checkToken && (
-                  <Nav.Link
-                    key="home"
-                    onClick={() => {
-                      history.push("/home");
-                    }}
-                  >
-                    DASHBOARD
-                  </Nav.Link>
-                )}
-              {(path === "/home" ||
-                path === "/profile" ||
-                path === "/profile-users") &&
-                checkToken && (
-                  <Nav.Link key="logoff" onClick={cleanStorage}>
-                    LOGOFF
-                  </Nav.Link>
-                )}
-            </Form>
+
+
+
+              {(path === "/" || path === "/register" || path === "/login")  && !storage && (<Nav.Link key="login" onClick={() => {history.push("/login")}}>LOGIN</Nav.Link>)}
+              {(path !== "/" || path !== "/register" || path !== "/login") && !storage && (<Nav.Link key="register" onClick={() => {history.push("/register")}}>CADASTRO</Nav.Link>)}
+              {(path !== "/" || path !== "/register" || path !== "/login") && storage && (<Nav.Link key="home" onClick={() => {history.push("/home")}}>DASHBOARD</Nav.Link>)}
+              {((path !== "/" || path !== "/register" || path !== "/login")) && storage && (<Nav.Link key="logoff" onClick={cleanStorage}>LOGOFF</Nav.Link>)}</Form>
+
           </Navbar.Collapse>
+
         </Navbar>
       </div>
     </>
