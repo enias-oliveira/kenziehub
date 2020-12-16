@@ -1,30 +1,15 @@
 import { Navbar, Form, Nav } from "react-bootstrap";
 import "./index.css";
 import { useHistory, useLocation } from "react-router-dom";
-import { useState } from "react";
 
 const NavBar = () => {
   const history = useHistory();
   const location = useLocation();
-  const [token, setToken] = useState(false);
   const path = location.pathname;
 
   const cleanStorage = () => {
     localStorage.clear();
-    // localStorage.idLoged = null;
-    // localStorage.authToken = null;
     history.push("/");
-    console.log("Storage is cleaned");
-  };
-
-  const checkToken = () => {
-    if (localStorage.authToken === undefined) {
-      setToken(false);
-      return false;
-    } else {
-      setToken(true);
-      return true;
-    }
   };
 
   let storage = localStorage.getItem("authToken");

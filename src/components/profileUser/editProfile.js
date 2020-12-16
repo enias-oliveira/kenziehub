@@ -12,15 +12,10 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
       cancelText="Cancelar"
       onCancel={onCancel}
       onOk={() => {
-        form
-          .validateFields()
-          .then((values) => {
-            form.resetFields();
-            onCreate(values);
-          })
-          .catch((info) => {
-            console.log("Validate Failed:", info);
-          });
+        form.validateFields().then((values) => {
+          form.resetFields();
+          onCreate(values);
+        });
       }}
     >
       <Form form={form} layout="vertical" name="form_in_modal">
@@ -58,7 +53,7 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
   );
 };
 
-export const EditProfile = ({ id, token }) => {
+export const EditProfile = ({ token }) => {
   const [visible, setVisible] = useState(false);
   const success = (messageSuccess) => {
     message.success(messageSuccess);

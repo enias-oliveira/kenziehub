@@ -14,6 +14,5 @@ export const showUsersThunk = (perPage, page) => (dispatch) => {
         list = [...list, item];
       });
       return dispatch(showUsers(list));
-    })
-    .catch((err) => console.log(err));
+    });
 };

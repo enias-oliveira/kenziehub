@@ -12,15 +12,10 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
       cancelText="Cancelar"
       onCancel={onCancel}
       onOk={() => {
-        form
-          .validateFields()
-          .then((values) => {
-            form.resetFields();
-            onCreate(values);
-          })
-          .catch((info) => {
-            console.log("Validate Failed:", info);
-          });
+        form.validateFields().then((values) => {
+          form.resetFields();
+          onCreate(values);
+        });
       }}
     >
       <Form form={form} layout="vertical" name="form_in_modal">
@@ -61,7 +56,7 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
               message: "Confirme a nova senha!",
             },
             ({ getFieldValue }) => ({
-              validator(rule, value) {
+              validator(_rule, value) {
                 if (!value || getFieldValue("password") === value) {
                   return Promise.resolve();
                 }
