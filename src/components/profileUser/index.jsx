@@ -6,7 +6,7 @@ import { Typography, List, Card } from "antd";
 import { FaLinkedin } from "react-icons/fa";
 import { MdClass } from "react-icons/md";
 
-import "./index.css"
+import "./index.css";
 
 import { AddTech } from "./addTech";
 import { EditTech } from "./editTech";
@@ -19,7 +19,7 @@ import { EditAvatar } from "./editAvatar";
 
 const { Title, Text } = Typography;
 
-const PerfilUser = ({ id, userLoged = true }) => {
+const ProfileUser = ({ id, userLoged = true }) => {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile);
 
@@ -49,7 +49,8 @@ const PerfilUser = ({ id, userLoged = true }) => {
             <a href={`https://www.linkedin.com/in/${profile.contact}/`}>
               Meu Linkedin
             </a>{" "}
-            <br/>{profile.bio}
+            <br />
+            {profile.bio}
           </Text>
           <Text>
             <MdClass />
@@ -111,4 +112,4 @@ const PerfilUser = ({ id, userLoged = true }) => {
   );
 };
 
-export default PerfilUser;
+export default ProfileUser;
