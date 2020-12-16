@@ -21,7 +21,7 @@ const CardUserHome = ({ user }) => {
             src={
               !!user.avatar_url
                 ? user.avatar_url
-                : "https://i.postimg.cc/dV5zS0bc/avatar-default.png"
+                : "https://i.postimg.cc/5ypGd3np/perfil-twitter.png"
             }
             style={{ height: "11rem", width: "11rem", margin: "1rem auto" }}
           />
