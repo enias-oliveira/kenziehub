@@ -1,7 +1,6 @@
 import React from "react";
 import RegistrationForm from "../../components/userRegister";
 import NavBar from "../../components/navbar";
-import CarouselSlider from "../../components/sliderCarousel";
 
 
 import styled from "styled-components";
@@ -10,20 +9,16 @@ const Register = () => {
   return (
     <>
       <NavBar />
-      <CarouselSlider />
+
       <Container>
-        <br/>
+        
         <RegistrationForm />
       </Container>
     </>
   );
 };
 
-
-
-
 export const Container = styled.div`
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;

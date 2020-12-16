@@ -11,6 +11,8 @@ import styled from "styled-components";
 
 import { showUsersThunk } from "../../store/modules/usersBasics/thunks";
 
+import {Tooltip} from "antd"
+
 const Home = () => {
   const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
@@ -20,38 +22,57 @@ const Home = () => {
 
   const [page, setPage] = useState(1);
 
+let storage = localStorage.getItem("authToken");
+
+
   useEffect(() => {
+    
+    
     dispatch(showUsersThunk(12, page));
 
     axios.get(`https://kenziehub.me/users/${idLoged}`).then((res) => {
       console.log("DataHome: ", res.data);
       setInfoLoged(res.data);
+
+    
+      
     });
-  }, [dispatch, page]);
+  }, [dispatch, page, setInfoLoged, setPage, storage, idLoged]);
 
+  
+    
   return (
-    <Container>
-      <NavBar />
-
-      <main>
-        <Perfil>
-          <Link to="/profile">
-            <div className="img">
-              <img
-                src={
-                  infoLoged.avatar_url
-                    ? infoLoged.avatar_url
-                    : "https://raw.githubusercontent.com/hom-bahrani/react-profile-card/master/src/placeholder.png"
+    <>
+     <NavBar />
+      <Container>
+        <main>
+          <Tooltip placement="bottom" title="Clique para editar seu perfil e inserir um novo avatar">
+            <Perfil>
+              <Link to="/profile">
+                <div className="img">
+                  <img
+                    src={
+                      infoLoged.avatar_url
+                        ? infoLoged.avatar_url
+                        : "https://i.postimg.cc/dV5zS0bc/avatar-default.png"
+                    }
+                    alt="user"
+                  />
+                </div>
+              </Link>
+              <div className="name">
+                {
+                  <b>
+                    <h4>{infoLoged.name}</h4>
+                 </b>
                 }
-                alt="user"
-              />
-            </div>
-          </Link>
-          <div className="name">{<b>{infoLoged.name}</b>}</div>
-        </Perfil>
-        <ListUserHome users={users} currentPage={page} setPage={setPage} />
-      </main>
-    </Container>
+              </div>
+            </Perfil>
+          </Tooltip>
+          <ListUserHome users={users} currentPage={page} setPage={setPage} />
+        </main>
+      </Container>
+    </>
   );
 };
 

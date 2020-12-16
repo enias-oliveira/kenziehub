@@ -1,8 +1,16 @@
-import ProfileUser from "../../components/perfilUser";
+import React, { useState } from "react";
+import ProfileUser from "../../components/profileUser";
+import NavBar from "../../components/navbar";
 
 const Profile = () => {
   const storage = localStorage.getItem("idLoged");
-  return <ProfileUser id={storage} />;
+
+  return (
+    <>
+      <NavBar />
+      <ProfileUser id={storage} />
+    </>
+  );
 };
 
 export default Profile;

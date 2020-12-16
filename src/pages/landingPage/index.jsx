@@ -4,6 +4,8 @@ import NavBar from "../../components/navbar";
 import CarouselSlider from "../../components/sliderCarousel";
 import ListUserBasics from "../../components/listUserBasics";
 
+import "./style.css"
+
 import { showUsersThunk } from "../../store/modules/usersBasics/thunks";
 
 const LandingPage = () => {

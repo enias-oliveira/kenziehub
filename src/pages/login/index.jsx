@@ -5,15 +5,15 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 import NavBar from "../../components/navbar";
-import CarouselSlider from "../../components/sliderCarousel";
+
 
 const Login = () => {
   const history = useHistory();
   const url = "https://kenziehub.me/sessions";
 
   const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
+    labelCol: { span: 250 },
+    wrapperCol: { span: 216 },
   };
 
   const validateMessages = {
@@ -50,8 +50,13 @@ const Login = () => {
   return (
     <>
       <NavBar />
-      <CarouselSlider />
+
       <Container>
+                <h2 style={{ color: "white" }}>
+          Logue-se agora mesmo!{" "}
+          
+        </h2>
+        <br />
         <Form
           {...layout}
           name="nest-messages"
@@ -75,13 +80,18 @@ const Login = () => {
               },
             ]}
           >
-            <Input.Password placeholder="@Password123" />
+            <Input.Password placeholder="Insira aqui a sua senha" />
           </Form.Item>
           <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-            <Button  htmlType="submit">
-              Login
+            <Button htmlType="submit">Login</Button>
+            <Button
+              onClick={() => {
+                history.push("/register");
+              }}
+            >
+              {" "}
+              Cadastrar-se
             </Button>
-            <Button onClick={()=>{history.push("/register")}}> Cadastrar-se</Button>
           </Form.Item>
         </Form>
       </Container>
@@ -90,6 +100,7 @@ const Login = () => {
 };
 
 export const Container = styled.div`
+margin-top:50px !important;
   display: flex;
   flex-direction: column;
   align-items: center;

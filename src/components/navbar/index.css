@@ -14,8 +14,11 @@ color:white;
     color:white!important;
 }
 
-#main-container > nav > span > img{
-    width: 60%;
+#main-container > div.layout-navbar > nav > span > img{
+    max-width: 70% !important;
 }
 
-
+/* 
+.layout-navbar{
+    margin-bottom: 20px;
+} */

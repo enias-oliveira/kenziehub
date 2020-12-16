@@ -6,29 +6,29 @@ import rgx from "./data/validator";
 const formItemLayout = {
   labelCol: {
     xs: {
-      span: 24,
+      span: 5,
     },
     sm: {
-      span: 8,
+      span: 5,
     },
   },
   wrapperCol: {
     xs: {
-      span: 24,
+      span: 300,
     },
     sm: {
-      span: 16,
+      span: 300 ,
     },
   },
 };
 const tailFormItemLayout = {
   wrapperCol: {
     xs: {
-      span: 100,
-      offset: 0,
+      span: 50,
+      offset: 8,
     },
     sm: {
-      span: 100,
+      span: 50,
       offset: 8,
     },
   },
@@ -45,7 +45,7 @@ const RegistrationForm = () => {
       type: "success",
     });
   };
-  
+
   const errorNotification = () => {
     notification.open({
       message: "Usuário não registrado!",
@@ -61,21 +61,22 @@ const RegistrationForm = () => {
       .post(url, values)
       .then((response) => {
         console.log("user successful registration", response);
-        successNotification()
-        history.push("/");
+        successNotification();
+        history.push("/login");
       })
-      .catch((error) =>errorNotification()
-      );
+      .catch((error) => errorNotification());
   };
-
-  
 
   return (
     <>
       <div className="form-register">
-        <br /><br />
-        <h2 style={{"color": "white"}}>Cadastre-se em nossa plataforma</h2>
-        <br /><br />
+        <br />
+        <br />
+        <br />
+        
+        <h2 style={{ color: "white" }}>Faça parte da KenzieHub! </h2>
+        <br />
+        <br />
         <Form
           {...formItemLayout}
           form={form}
@@ -106,7 +107,7 @@ const RegistrationForm = () => {
             ]}
             hasFeedback
           >
-            <Input placeholder="seuemail@email.com" />
+            <Input placeholder="example@example.com" />
           </Form.Item>
           <Form.Item
             name="password"
@@ -213,6 +214,10 @@ const RegistrationForm = () => {
                 min: 5,
                 message: "Sua bio pode ser maior que 5 caracteres",
               },
+              {
+                max: 400,
+                message: "Sua bio não pode possuir mais de 400 caracters",
+              },
             ]}
           >
             <Input.TextArea placeholder="Uma breve descrição..." />
@@ -249,9 +254,7 @@ const RegistrationForm = () => {
           </Form.Item>
 
           <Form.Item {...tailFormItemLayout}>
-            <Button htmlType="submit">
-              Cadastrar
-            </Button>
+            <Button htmlType="submit">Cadastrar</Button>
           </Form.Item>
         </Form>
       </div>

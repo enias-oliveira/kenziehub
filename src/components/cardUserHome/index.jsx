@@ -5,16 +5,15 @@ const { Meta } = Card;
 const CardUserHome = ({ user }) => {
   const history = useHistory();
 
-  const getIdCard = (id) => {
-    console.log("CardUsers ", id);
-    localStorage.setItem("idCommunity", id);
-    history.push("/profile-users");
+  const handleHomeCardClick = () => {
+    localStorage.setItem("idCommunity", user.id);
+    history.push(`/profile-users/${user.id}`);
   };
 
   return (
     <>
       <Card
-        onClick={() => getIdCard(user.id)}
+        onClick={handleHomeCardClick}
         hoverable
         cover={
           <img
@@ -22,9 +21,9 @@ const CardUserHome = ({ user }) => {
             src={
               !!user.avatar_url
                 ? user.avatar_url
-                : "https://www.nicepng.com/png/full/73-730154_open-default-profile-picture-png.png"
+                : "https://i.postimg.cc/5ypGd3np/perfil-twitter.png"
             }
-            style={{ height: "11rem" }}
+            style={{ height: "11rem", width: "11rem", margin: "1rem auto" }}
           />
         }
         style={{ height: "24rem", width: "14rem" }}
