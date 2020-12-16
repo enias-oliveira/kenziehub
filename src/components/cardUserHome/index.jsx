@@ -7,7 +7,7 @@ const CardUserHome = ({ user }) => {
 
   const handleHomeCardClick = () => {
     localStorage.setItem("idCommunity", user.id);
-    history.push("/profile-users");
+    history.push(`/profile-users/${user.id}`);
   };
 
   return (
