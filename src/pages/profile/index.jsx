@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ProfileUser from "../../components/profileUser";
 import NavBar from "../../components/navbar";
 

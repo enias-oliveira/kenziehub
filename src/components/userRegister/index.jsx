@@ -17,7 +17,7 @@ const formItemLayout = {
       span: 300,
     },
     sm: {
-      span: 300 ,
+      span: 300,
     },
   },
 };
@@ -55,12 +55,9 @@ const RegistrationForm = () => {
   };
 
   const onFinish = (values) => {
-    console.log("Values received from form registration", values);
-
     axios
       .post(url, values)
       .then((response) => {
-        console.log("user successful registration", response);
         successNotification();
         history.push("/login");
       })
@@ -73,7 +70,7 @@ const RegistrationForm = () => {
         <br />
         <br />
         <br />
-        
+
         <h2 style={{ color: "white" }}>Faça parte da KenzieHub! </h2>
         <br />
         <br />

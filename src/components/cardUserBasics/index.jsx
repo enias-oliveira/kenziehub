@@ -6,7 +6,6 @@ const CardUserBasics = ({ user }) => {
   return (
     <>
       <Card
-        onClick={() => console.log("Card Clicked")}
         hoverable
         style={{
           display: "flex",

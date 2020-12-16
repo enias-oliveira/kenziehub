@@ -18,7 +18,6 @@ const Home = () => {
   const dispatch = useDispatch();
   const [infoLoged, setInfoLoged] = useState({});
   const idLoged = localStorage.getItem("idLoged");
-  // console.log("IDLoged: ", idLoged);
 
   const [page, setPage] = useState(1);
 
@@ -28,7 +27,6 @@ const Home = () => {
     dispatch(showUsersThunk(12, page));
 
     axios.get(`https://kenziehub.me/users/${idLoged}`).then((res) => {
-      console.log("DataHome: ", res.data);
       setInfoLoged(res.data);
     });
   }, [dispatch, page, setInfoLoged, setPage, storage, idLoged]);

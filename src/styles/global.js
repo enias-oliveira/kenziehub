@@ -57,7 +57,6 @@ button, svg {
 
 
 .ant-card {
-    /* background-color: #6AFFDB; */
     font-size: 18px;
 
 }
@@ -66,15 +65,6 @@ button, svg {
 #login-overflowed-indicator\$Menu > li.ant-menu-item.ant-menu-item-only-child.ant-menu-item-active{
 font-size:20px;
 }
-
-/* .ant-card-meta-title {
-    overflow: hidden;
-    color: rgba(0, 0, 0, 0.85);
-    font-weight: 500;
-    font-size: 25px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-} */
 
 .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu {
     margin: 0 20px;

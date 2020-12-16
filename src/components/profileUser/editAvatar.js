@@ -37,7 +37,7 @@ export const EditAvatar = ({ token, profileAvatarUrl }) => {
     <div>
       <div className="avatar">
         <Avatar
-          size={{ xs: 100, sm: 130, md: 140, lg: 140, xl: 140, xxl: 140 }}
+          size={{ xs: 230, sm: 130, md: 140, lg: 140, xl: 140, xxl: 140 }}
           src={
             profileAvatarUrl
               ? profileAvatarUrl

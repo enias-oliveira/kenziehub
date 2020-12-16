@@ -11,8 +11,6 @@ import { handleAuthenticateTrue } from "../../store/modules/authenticate/actions
 
 const Login = () => {
   const dispath = useDispatch();
-  const authenticator = useSelector((state) => state.authenticator);
-  console.log("Authenticator: ", authenticator);
   const history = useHistory();
   const url = "https://kenziehub.me/sessions";
 
@@ -41,7 +39,6 @@ const Login = () => {
     axios
       .post(url, value)
       .then((res) => {
-        console.log("Resposta: ", res.data);
         window.localStorage.setItem("authToken", res.data.token);
 
         window.localStorage.setItem("idLoged", res.data.user.id);
