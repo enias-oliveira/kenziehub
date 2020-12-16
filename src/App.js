@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {useHistory} from "react-router-dom"
+import { useHistory } from "react-router-dom";
 import GlobalStyle from "./styles/global";
 import LandingPage from "./pages/landingPage";
 import Login from "./pages/login";
@@ -8,12 +8,11 @@ import Home from "./pages/home";
 import Profile from "./pages/profile";
 import ProfileUsers from "./pages/profileUsers";
 
-
 import { Switch, Route } from "react-router-dom";
 const App = () => {
   const [authenticate, setAuthenticate] = useState(undefined);
   const history = useHistory();
- useEffect(() => {
+  useEffect(() => {
     const token = localStorage.getItem("authToken");
 
     if (token === (undefined || null)) {
@@ -33,7 +32,7 @@ const App = () => {
   }
 
   if (authenticate === false) {
-    history.push("/")
+    history.push("/");
     return (
       <>
         <div id="main-container">
@@ -47,7 +46,7 @@ const App = () => {
             <Route path="/register">
               <Register />
             </Route>
-           </Switch>
+          </Switch>
         </div>
         <GlobalStyle></GlobalStyle>
       </>
@@ -87,5 +86,3 @@ const App = () => {
 };
 
 export default App;
-
-
