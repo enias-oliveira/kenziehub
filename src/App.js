@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import GlobalStyle from "./styles/global";
 
 const App = () => {
@@ -10,5 +11,10 @@ const App = () => {
     </>
   );
 };
+=======
+import Routes from "./routes";
+
+const App = () => <Routes />;
+>>>>>>> develop
 
 export default App;
