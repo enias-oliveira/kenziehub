@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import GlobalStyle from "../styles/global";
 import LandingPage from "../pages/landingPage";
@@ -9,21 +9,27 @@ import Profile from "../pages/profile";
 import ProfileUsers from "../pages/profileUsers";
 
 import { Switch, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  handleAuthenticateTrue,
+  handleAuthenticateFalse,
+} from "../store/modules/authenticate/actions";
 
 const Routes = () => {
-  const [authenticate, setAuthenticate] = useState(undefined);
+  const dispatch = useDispatch();
+  const authenticator = useSelector((state) => state.authenticator);
   const history = useHistory();
   useEffect(() => {
     const token = localStorage.getItem("authToken");
 
     if (token === (undefined || null)) {
-      setAuthenticate(false);
+      dispatch(handleAuthenticateFalse);
     } else {
-      setAuthenticate(true);
+      dispatch(handleAuthenticateTrue);
     }
-  }, [setAuthenticate]);
+  }, [dispatch]);
 
-  if (authenticate === undefined) {
+  if (authenticator === undefined) {
     return (
       <>
         <div>Loading..</div>
@@ -32,7 +38,7 @@ const Routes = () => {
     );
   }
 
-  if (authenticate === false) {
+  if (authenticator === false) {
     history.push("/");
     return (
       <>

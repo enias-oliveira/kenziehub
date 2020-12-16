@@ -6,8 +6,13 @@ import { useHistory } from "react-router-dom";
 
 import NavBar from "../../components/navbar";
 
+import { useDispatch, useSelector } from "react-redux";
+import { handleAuthenticateTrue } from "../../store/modules/authenticate/actions";
 
 const Login = () => {
+  const dispath = useDispatch();
+  const authenticator = useSelector((state) => state.authenticator);
+  console.log("Authenticator: ", authenticator);
   const history = useHistory();
   const url = "https://kenziehub.me/sessions";
 
@@ -41,6 +46,8 @@ const Login = () => {
 
         window.localStorage.setItem("idLoged", res.data.user.id);
 
+        dispath(handleAuthenticateTrue);
+
         success();
         history.push("/home");
       })
@@ -52,10 +59,7 @@ const Login = () => {
       <NavBar />
 
       <Container>
-                <h2 style={{ color: "white" }}>
-          Logue-se agora mesmo!{" "}
-          
-        </h2>
+        <h2 style={{ color: "white" }}>Logue-se agora mesmo! </h2>
         <br />
         <Form
           {...layout}
@@ -100,7 +104,7 @@ const Login = () => {
 };
 
 export const Container = styled.div`
-margin-top:50px !important;
+  margin-top: 50px !important;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -108,7 +112,6 @@ margin-top:50px !important;
   margin: 0 auto;
   width: 50vw;
   height: 60vh;
-  
 `;
 
 export default Login;
