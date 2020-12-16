@@ -11,7 +11,7 @@ import styled from "styled-components";
 
 import { showUsersThunk } from "../../store/modules/usersBasics/thunks";
 
-import {Tooltip} from "antd"
+import { Tooltip } from "antd";
 
 const Home = () => {
   const users = useSelector((state) => state.users);
@@ -22,31 +22,26 @@ const Home = () => {
 
   const [page, setPage] = useState(1);
 
-let storage = localStorage.getItem("authToken");
-
+  let storage = localStorage.getItem("authToken");
 
   useEffect(() => {
-    
-    
     dispatch(showUsersThunk(12, page));
 
     axios.get(`https://kenziehub.me/users/${idLoged}`).then((res) => {
       console.log("DataHome: ", res.data);
       setInfoLoged(res.data);
-
-    
-      
     });
   }, [dispatch, page, setInfoLoged, setPage, storage, idLoged]);
 
-  
-    
   return (
     <>
-     <NavBar />
+      <NavBar />
       <Container>
         <main>
-          <Tooltip placement="bottom" title="Clique para editar seu perfil e inserir um novo avatar">
+          <Tooltip
+            placement="bottom"
+            title="Clique para editar seu perfil e inserir um novo avatar"
+          >
             <Perfil>
               <Link to="/profile">
                 <div className="img">
@@ -54,7 +49,7 @@ let storage = localStorage.getItem("authToken");
                     src={
                       infoLoged.avatar_url
                         ? infoLoged.avatar_url
-                        : "https://i.postimg.cc/dV5zS0bc/avatar-default.png"
+                        : "https://i.postimg.cc/5ypGd3np/perfil-twitter.png"
                     }
                     alt="user"
                   />
@@ -64,7 +59,7 @@ let storage = localStorage.getItem("authToken");
                 {
                   <b>
                     <h4>{infoLoged.name}</h4>
-                 </b>
+                  </b>
                 }
               </div>
             </Perfil>
@@ -98,7 +93,7 @@ const Perfil = styled.div`
   display: flex;
   flex-flow: column;
   margin: 20px;
-  background: yellow;
+  background: #e4b601;
   width: 210px;
   height: 100%;
   margin-bottom: 20px;
