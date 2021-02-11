@@ -113,9 +113,15 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 <!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
 
+- [Alexandre Alves](https://github.com/xandewe)
+- [Brunno Lorran](https://github.com/brunnolorran)
+- [Enias Oliveira](https://github.com/enias-oliveira)
+- [Ramón Soeira](https://github.com/ramonsoeira)
+- [Wenner Castilho](https://github.com/WennerCastilho)
+
 - [devChallenges](https://devchallenges.io/) (Provided README template)
 
-## Contact
+## My Contact
 
 - GitHub [@enias-oliveira](https://github.com/enias-oliveira)
 - LinkedIn [@enias-oliveira](https://www.linkedin.com/in/enias-oliveira/)
