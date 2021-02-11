@@ -35,9 +35,9 @@
 
 Kenziehub is a React Application where developers from Kenzie Academy can present their skills to tech recruiters.
 
-This project was developed by a team of 5 students, as our "Capstone Project" in the "Advanced Front End with React" course from Kenzie Academy. We received access to the KenzieHub API and it's [documentation](https://gitlab.com/ka-br-jul-2020/kenziehub-api/-/blob/master/readme.md).
+This project was developed by a team of 5 students, as our "Capstone Project" in the "Advanced Front End with React" course from Kenzie Academy. We received access to the KenzieHub API and its [documentation](https://gitlab.com/ka-br-jul-2020/kenziehub-api/-/blob/master/readme.md).
 
-We learned how to structure a front end system, studying and consuming a Back End API, the use of multiple javascript libraries, and a pratical implementation of Scrum and it's rituals / ceremonies. Planning and communication were essential, so we used Figma to create a mockup, Trello and Jira for creating and assaigning tasks.
+We learned how to structure a front end system, studying and consuming a Back End API, the use of multiple javascript libraries, and practical implementation of Scrum and its rituals/ceremonies. Planning and communication were essential, so we used Figma to create a mockup, Trello, and Jira for creating and assigning tasks.
 
 ### Built With
 
