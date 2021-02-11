@@ -61,7 +61,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/enias-oliveira/feedback-forum
+$ git clone https://github.com/enias-oliveira/kenziehub
 
 # Install dependencies
 $ npm install
@@ -110,4 +110,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 - GitHub [@enias-oliveira](https://github.com/enias-oliveira)
 - LinkedIn [@enias-oliveira](https://www.linkedin.com/in/enias-oliveira/)
-- Gitlab [@enias-c137](https://gitlab.com/enias-c137
+- Gitlab [@enias-c137](https://gitlab.com/enias-c137)
