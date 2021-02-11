@@ -60,6 +60,16 @@ We learned how to structure a front end system, studying and consuming a Back En
 
 <!-- List the features of your application or follow the template. Don't share the figma file here :) -->
 
+- Developers and Recruiters can create an account with a username, email, and password.
+- Developers can customize their profiles by adding their "Tech Skills", proficiency level, and completed Kenzie course.
+
+![screenshot](https://lh3.googleusercontent.com/pw/ACtC-3dgxuzWBkWtWZzETu30p6IKF-_ao9A1QRkq2MMHcY2p_hdoctrYSWA9j37PFu9azjztyu1EcYVb6TU0NM4BxATLNL-cua5Y0FJiGvDBHSVJYr8NQ5LjO7JPi3yWZE-9_KqyF8_CSsJ9gf-v6K46HcxV=w809-h546-no?authuser=0)
+
+- Log in with a form that has a validation schema to guarantee proper data is sent to the Back End.
+- See a list of cards with users' names, email, and primary skills. The list is paginated.
+- Each user has a profile page, detailing their information
+- User can update their profile photo and information.
+
 ## How To Use
 
 ## Available Scripts
