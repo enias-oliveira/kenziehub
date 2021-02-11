@@ -43,9 +43,18 @@ We learned how to structure a front end system, studying and consuming a Back En
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
-- [React](https://reactjs.org/)
-- [Vue.js](https://vuejs.org/)
-- [Tailwind](https://tailwindcss.com/)
+- [React](https://reactjs.org/): A JavaScript library for building user interfaces
+- [Antd](https://ant.design/): A design system for enterprise-level products.
+- [Axios](https://github.com/axios/axios): Promise based HTTP client for the browser and node.js
+- [Bootstrap](https://getbootstrap.com/): The most popular HTML, CSS and JS library for responsive, mobile-first web development
+- [React Bootstrap](https://react-bootstrap.github.io/): The most popular front-end framework rebuilt for React
+- [styled components](https://styled-components.com/): Visual primitives for the component age by using the best bits of ES6 and CSS to style apps.
+- [React Router](https://reactrouter.com/): A collection of navigational components
+- [React Hook Form](https://react-hook-form.com/): Performant, flexible and extensible forms with easy-to-use validation.
+- [Redux](https://redux.js.org/): A Predictable State Container for JS Apps
+- [React-Redux](https://react-redux.js.org/): Official React bindings for Redux
+- [Redux-Thunk](https://github.com/reduxjs/redux-thunk): Middleware allows you to write action creators that return a function instead of an action
+- [Yup](https://www.npmjs.com/package/yup): A JavaScript schema builder for value parsing and validation.
 
 ## Features
 
